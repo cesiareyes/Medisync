@@ -25,10 +25,10 @@ struct ContentView: View {
                 VStack{
                     Text("Medisync")
                         .fontDesign(.serif)
-                        .font(.system(size: 45))
+                        .font(.system(size: 50))
                         .fontWeight(.bold)
                         .foregroundColor(.black)
-                        .padding(.bottom, 45)
+                        .padding(.bottom, 60)
 
                     TextField("\(Image(systemName: "envelope.fill"))  Email", text: $email)
                         .keyboardType(.emailAddress)
@@ -51,7 +51,7 @@ struct ContentView: View {
                             Text("Login")
                                 .foregroundColor(.white)
                                 .bold()
-                                .frame(width: 200, height: 50)
+                                .frame(width: 200, height: 55)
                                 .background(Color(red: 0.0, green: 0.13, blue: 0.27).opacity(0.9))
                                 .cornerRadius(10)
                                 .padding()
@@ -70,7 +70,7 @@ struct ContentView: View {
                                 .font(.headline)
                                 .foregroundColor(.white)
                                 .padding()
-                                .frame(width: 200, height: 50)
+                                .frame(width: 200, height: 55)
                                 .background(Color.gray)
                                 .cornerRadius(10.0)
                         }

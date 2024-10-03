@@ -47,7 +47,7 @@ struct RegistrationView: View {
                 VStack{
                     Text("Sign Up")
                         .fontDesign(.serif)
-                        .font(.system(size: 45))
+                        .font(.system(size: 50))
                         .fontWeight(.bold)
                         .foregroundColor(.black)
                         .padding()
@@ -107,7 +107,7 @@ struct RegistrationView: View {
                             Text("Continue")
                                 .foregroundColor(.white)
                                 .bold()
-                                .frame(width: 200, height: 60)
+                                .frame(width: 200, height: 55)
                                 .background(Color(red: 0.0, green: 0.13, blue: 0.27).opacity(0.9))
                                 .cornerRadius(10)
                             
@@ -125,7 +125,7 @@ struct RegistrationView: View {
                             Text("Continue")
                                 .foregroundColor(.white)
                                 .bold()
-                                .frame(width: 200, height: 60)
+                                .frame(width: 200, height: 55)
                                 .background(Color.gray)
                                 .cornerRadius(10)
                         }
@@ -134,6 +134,11 @@ struct RegistrationView: View {
                         }
                     }
                     
+                    NavigationLink(destination: ContentView()){
+                        Text("Already have an Account? Log in")
+                            .padding(.top, 10)
+                            .foregroundColor(.white)
+                    }
                     
                 
                 }
