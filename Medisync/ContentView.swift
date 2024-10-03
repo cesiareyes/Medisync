@@ -22,26 +22,28 @@ struct ContentView: View {
                 Circle()
                     .scale(1.7)
                     .foregroundColor(.white.opacity(0.15))
-                
-                    
                 VStack{
                     Text("Medisync")
-                        .font(.largeTitle)
-                        .fontWeight(.semibold)
-                        .padding(.bottom, 50)
+                        .fontDesign(.serif)
+                        .font(.system(size: 45))
+                        .fontWeight(.bold)
+                        .foregroundColor(.black)
+                        .padding(.bottom, 45)
 
-                    TextField("Email", text: $email)
+                    TextField("\(Image(systemName: "envelope.fill"))  Email", text: $email)
                         .keyboardType(.emailAddress)
                         .padding()
                         .background(Color.white.opacity(0.5))
                         .cornerRadius(10.0)
                         .frame(width: 350, height: 50)
-                    SecureField("Password", text: $password)
+                        .padding(.bottom, 5)
+
+                    SecureField("\(Image(systemName: "lock.fill"))  Password", text: $password)
                         .padding()
                         .background(Color.white.opacity(0.5))
                         .cornerRadius(10.0)
                         .frame(width: 350, height: 50)
-                        .padding(.bottom, 10)
+                        .padding(.bottom, 20)
                         
                     
                     if validateLogin(email: email, password: password) {
@@ -49,9 +51,10 @@ struct ContentView: View {
                             Text("Login")
                                 .foregroundColor(.white)
                                 .bold()
-                                .frame(width: 200, height: 60)
+                                .frame(width: 200, height: 50)
                                 .background(Color(red: 0.0, green: 0.13, blue: 0.27).opacity(0.9))
                                 .cornerRadius(10)
+                                .padding()
                         }
                     } else{
                         Button(action: {
@@ -78,6 +81,8 @@ struct ContentView: View {
                     
                     NavigationLink(destination: RegistrationView()){
                         Text("Not yet Registered? Sign Up")
+                            .padding(.top, 10)
+                            .foregroundColor(.white)
                     }
                 }
             }

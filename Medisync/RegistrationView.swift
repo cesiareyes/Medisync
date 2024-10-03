@@ -26,8 +26,7 @@ class UserManager: ObservableObject {
 }
 
 struct RegistrationView: View {
-    @State private var firstName: String = ""
-    @State private var lastName: String = ""
+    @State private var name: String = ""
     @State private var email: String = ""
     @State private var newPassword: String = ""
     @State private var dateOfBirth = Date()
@@ -35,6 +34,7 @@ struct RegistrationView: View {
     @EnvironmentObject var userManager: UserManager
     @State private var registrationSuccess = false
     @State private var showingAlert = false
+    @State private var selection = 1
     
     
     var body: some View {
@@ -45,46 +45,62 @@ struct RegistrationView: View {
                     .ignoresSafeArea()
                 
                 VStack{
-                    TextField("First Name", text:$firstName)
+                    Text("Sign Up")
+                        .fontDesign(.serif)
+                        .font(.system(size: 45))
+                        .fontWeight(.bold)
+                        .foregroundColor(.black)
+                        .padding()
+                    Text("Create your Account")
+                        .foregroundColor(.black.opacity(0.7))
+                        .fontDesign(.serif)
+                        .padding(.bottom, 50)
+                    
+                    TextField("\(Image(systemName: "person.circle"))  Full Name", text:$name)
                         .padding()
                         .frame(width: 360, height: 60)
                         .background(Color.white.opacity(0.5))
                         .cornerRadius(10.0)
                     
-                        
-                    
-                    TextField("Last Name", text:$lastName)
-                        .padding()
-                        .frame(width: 360, height: 60)
-                        .background(Color.white.opacity(0.5))
-                        .cornerRadius(10.0)
-                    
-                    TextField("Email", text:$email)
+                    TextField("\(Image(systemName: "envelope.fill"))  Email", text:$email)
                         .padding()
                         .keyboardType(.emailAddress)
                         .frame(width: 360, height: 60)
                         .background(Color.white.opacity(0.5))
                         .cornerRadius(10.0)
                     
-                    SecureField("Password", text:$newPassword)
+                    SecureField("\(Image(systemName: "lock.fill"))  Password", text:$newPassword)
                         .padding()
                         .frame(width: 360, height: 60)
                         .background(Color.white.opacity(0.5))
                         .cornerRadius(10)
                     
-                    DatePicker("Birthday",selection: $dateOfBirth, displayedComponents: .date)
+                    DatePicker("\(Image(systemName: "birthday.cake"))  Birthday",selection: $dateOfBirth, displayedComponents: .date)
                         .padding()
                         .frame(width: 360, height: 60)
                         .background(Color.white.opacity(0.5))
                         .cornerRadius(10)
                     
-                        .padding(.bottom, 20)
+                    HStack{
+                        Text("Pick Your Role")
+                            .font(.title3)
+                            .padding()
+                        Picker(selection: $selection, label: Text("Tell us who you are")){
+                            Text("Doctor").tag(1)
+                            Text("Nurse").tag(2)
+                            Text("Lab Tech").tag(3)
+                            Text("Patient").tag(4)
+                        }
+                        .foregroundColor(.black)
+                        .pickerStyle(.menu)
+                        .accentColor(.black)
+                        .padding()
+                    }
                     
             
                     if !newPassword.isEmpty &&
                         !email.isEmpty &&
-                        !lastName.isEmpty &&
-                        !firstName.isEmpty{
+                        !name.isEmpty{
                             
                         //userManager.registerUser(firstName: firstName, lastName: lastName, password: newPassword, dateOfBirth: dateOfBirth, email: email)
                         NavigationLink(destination: HomeView()){
@@ -100,8 +116,7 @@ struct RegistrationView: View {
                         Button(action: {
                             if newPassword.isEmpty &&
                                email.isEmpty &&
-                               lastName.isEmpty &&
-                                firstName.isEmpty {
+                               name.isEmpty{
                             
                                 showingAlert = true
                             }
@@ -126,6 +141,8 @@ struct RegistrationView: View {
         }
     }
 }
+
+
 
 #Preview {
     RegistrationView()
