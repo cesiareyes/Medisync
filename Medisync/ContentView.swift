@@ -12,6 +12,8 @@ struct ContentView: View {
     @State private var password: String = ""
     @State private var showingAlert = false
     
+    @State private var animationAmount: CGFloat = 1
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -20,8 +22,10 @@ struct ContentView: View {
                 Circle()
                     .scale(1.7)
                     .foregroundColor(.white.opacity(0.15))
+                
+                    
                 VStack{
-                    Text("Medisync Login")
+                    Text("Medisync")
                         .font(.largeTitle)
                         .fontWeight(.semibold)
                         .padding(.bottom, 50)
@@ -38,28 +42,39 @@ struct ContentView: View {
                         .cornerRadius(10.0)
                         .frame(width: 350, height: 50)
                         .padding(.bottom, 10)
+                        
                     
-                    Button(action: {
-                        if validateLogin(email: email, password: password) {
-                            // Handle successful login
-                            print("Login successful")
-                        } else {
-                            // Show an alert for unsuccessful login
-                            showingAlert = true
+                    if validateLogin(email: email, password: password) {
+                        NavigationLink(destination: HomeView()){
+                            Text("Login")
+                                .foregroundColor(.white)
+                                .bold()
+                                .frame(width: 200, height: 60)
+                                .background(Color(red: 0.0, green: 0.13, blue: 0.27).opacity(0.9))
+                                .cornerRadius(10)
                         }
-                    }){
-                        Text("Login")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding()
-                            .frame(width: 200, height: 50)
-                            .background(Color(red: 0.0, green: 0.13, blue: 0.27).opacity(0.9))
-                            .cornerRadius(10.0)
-                    }
-                    .alert(isPresented: $showingAlert) {
+                    } else{
+                        Button(action: {
+                            if validateLogin(email: email, password: password) {
+                                // Handle successful login
+                                print("Login successful")
+                            } else {
+                                // Show an alert for unsuccessful login
+                                showingAlert = true
+                            }
+                        }){
+                            Text("Login")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .padding()
+                                .frame(width: 200, height: 50)
+                                .background(Color.gray)
+                                .cornerRadius(10.0)
+                        }
+                        .alert(isPresented: $showingAlert) {
                         Alert(title: Text("Invalid Login"), message: Text("Please check your email and password"), dismissButton: .default(Text("OK")))
+                                            }
                     }
-                    .padding(.bottom, 10)
                     
                     NavigationLink(destination: RegistrationView()){
                         Text("Not yet Registered? Sign Up")
@@ -71,10 +86,11 @@ struct ContentView: View {
     
     
     func validateLogin(email: String, password: String) -> Bool {
-    // Simple validation: Check if email and password are not empty
+        // Simple validation: Check if email and password are not empty
         return !email.isEmpty && !password.isEmpty
     }
 }
+
 
 #Preview {
     ContentView()

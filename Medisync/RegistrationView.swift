@@ -10,7 +10,6 @@ import SwiftUI
 struct User {
     var firstName: String
     var lastName: String
-    var username: String
     var password: String
     var dateOfBirth: Date
     var email: String
@@ -21,7 +20,7 @@ class UserManager: ObservableObject {
     @Published var currentUser: User?
     
     func registerUser(firstName: String, lastName: String, username: String, password: String, dateOfBirth: Date, email: String) {
-            let newUser = User(firstName: firstName, lastName: lastName, username: username, password: password, dateOfBirth: dateOfBirth, email: email)
+            let newUser = User(firstName: firstName, lastName: lastName, password: password, dateOfBirth: dateOfBirth, email: email)
             currentUser = newUser
         }
 }
@@ -29,7 +28,6 @@ class UserManager: ObservableObject {
 struct RegistrationView: View {
     @State private var firstName: String = ""
     @State private var lastName: String = ""
-    @State private var newUsername:String = ""
     @State private var email: String = ""
     @State private var newPassword: String = ""
     @State private var dateOfBirth = Date()
@@ -37,7 +35,6 @@ struct RegistrationView: View {
     @EnvironmentObject var userManager: UserManager
     @State private var registrationSuccess = false
     
-
     
     
     var body: some View {
@@ -69,13 +66,6 @@ struct RegistrationView: View {
                         .background(Color.white.opacity(0.5))
                         .cornerRadius(10.0)
                     
-                    TextField("Username", text:$newUsername)
-                        .padding()
-                        .keyboardType(.emailAddress)
-                        .frame(width: 360, height: 60)
-                        .background(Color.white.opacity(0.5))
-                        .cornerRadius(10.0)
-                    
                     SecureField("Password", text:$newPassword)
                         .padding()
                         .frame(width: 360, height: 60)
@@ -92,12 +82,11 @@ struct RegistrationView: View {
                     
             
                         if !newPassword.isEmpty &&
-                            !newUsername.isEmpty &&
                             !email.isEmpty &&
                             !lastName.isEmpty &&
                             !firstName.isEmpty{
                             
-                            //userManager.registerUser(firstName: firstName, lastName: lastName, username: newUsername, password: newPassword, dateOfBirth: dateOfBirth, email: email)
+                            //userManager.registerUser(firstName: firstName, lastName: lastName, password: newPassword, dateOfBirth: dateOfBirth, email: email)
                             NavigationLink(destination: HomeView()){
                                 Text("Continue")
                                     .foregroundColor(.white)
