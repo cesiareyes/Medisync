@@ -34,7 +34,7 @@ struct RegistrationView: View {
     
     @EnvironmentObject var userManager: UserManager
     @State private var registrationSuccess = false
-    
+    @State private var showingAlert = false
     
     
     var body: some View {
@@ -81,22 +81,45 @@ struct RegistrationView: View {
                         .padding(.bottom, 20)
                     
             
-                        if !newPassword.isEmpty &&
-                            !email.isEmpty &&
-                            !lastName.isEmpty &&
-                            !firstName.isEmpty{
+                    if !newPassword.isEmpty &&
+                        !email.isEmpty &&
+                        !lastName.isEmpty &&
+                        !firstName.isEmpty{
                             
-                            //userManager.registerUser(firstName: firstName, lastName: lastName, password: newPassword, dateOfBirth: dateOfBirth, email: email)
-                            NavigationLink(destination: HomeView()){
-                                Text("Continue")
-                                    .foregroundColor(.white)
-                                    .bold()
-                                    .frame(width: 200, height: 60)
-                                    .background(Color(red: 0.0, green: 0.13, blue: 0.27).opacity(0.9))
-                                    .cornerRadius(10)
-                                
-                            }
+                        //userManager.registerUser(firstName: firstName, lastName: lastName, password: newPassword, dateOfBirth: dateOfBirth, email: email)
+                        NavigationLink(destination: HomeView()){
+                            Text("Continue")
+                                .foregroundColor(.white)
+                                .bold()
+                                .frame(width: 200, height: 60)
+                                .background(Color(red: 0.0, green: 0.13, blue: 0.27).opacity(0.9))
+                                .cornerRadius(10)
+                            
                         }
+                    } else{
+                        Button(action: {
+                            if newPassword.isEmpty &&
+                               email.isEmpty &&
+                               lastName.isEmpty &&
+                                firstName.isEmpty {
+                            
+                                showingAlert = true
+                            }
+                            
+                        }){
+                            Text("Continue")
+                                .foregroundColor(.white)
+                                .bold()
+                                .frame(width: 200, height: 60)
+                                .background(Color.gray)
+                                .cornerRadius(10)
+                        }
+                        .alert(isPresented: $showingAlert) {
+                            Alert(title: Text("Invalid Registration"), message: Text("Please make sure all fields are filled out."), dismissButton: .default(Text("OK")))
+                        }
+                    }
+                    
+                    
                 
                 }
             }

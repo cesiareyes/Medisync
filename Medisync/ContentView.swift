@@ -73,7 +73,7 @@ struct ContentView: View {
                         }
                         .alert(isPresented: $showingAlert) {
                         Alert(title: Text("Invalid Login"), message: Text("Please check your email and password"), dismissButton: .default(Text("OK")))
-                                            }
+                        }
                     }
                     
                     NavigationLink(destination: RegistrationView()){
