@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct User {
     var firstName: String
@@ -17,13 +18,32 @@ struct User {
 
 class UserManager: ObservableObject {
     @Published var users: [User] = []
-    @Published var currentUser: User?
+    @Published var currentUser: FirebaseAuth.User?
     
-    func registerUser(firstName: String, lastName: String, username: String, password: String, dateOfBirth: Date, email: String) {
-            let newUser = User(firstName: firstName, lastName: lastName, password: password, dateOfBirth: dateOfBirth, email: email)
-            currentUser = newUser
+    func registerUser(email: String, password: String, completion: @escaping (Error?) -> Void) {
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                completion(error)
+            } else if let firebaseUser = authResult?.user {
+                self.currentUser = firebaseUser
+                completion(nil)
+            }
         }
+    }
+        
+    func loginUser(email: String, password: String, completion: @escaping (Error?) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                completion(error)
+            } else if let firebaseUser = authResult?.user {
+                self.currentUser = firebaseUser
+                completion(nil)
+            }
+        }
+    }
 }
+    
+        
 
 struct RegistrationView: View {
     @State private var name: String = ""
@@ -35,26 +55,30 @@ struct RegistrationView: View {
     @State private var registrationSuccess = false
     @State private var showingAlert = false
     @State private var selection = 1
+    @State private var defaultWidth: CGFloat = 380
+    @State private var defaultHeight: CGFloat = 60
+    @State private var defaultOpacity: CGFloat = 0.5
+    @State private var defaultCornerRadius: CGFloat = 10.0
     
     
     var body: some View {
         NavigationView{
             
             ZStack {
-                Color.cyan
-                    .ignoresSafeArea()
-                
                 VStack{
+                    Image("Medisync_Logo")
+                        .resizable()
+                        .frame(width: 250, height: 250)
+                        .padding(.top, 80)
+                    
+                    Spacer().frame(height: 4)
+                    
                     Text("Sign Up")
                         .fontDesign(.serif)
                         .font(.system(size: 50))
                         .fontWeight(.bold)
                         .foregroundColor(.black)
-                        .padding()
-                    Text("Create your Account")
-                        .foregroundColor(.black.opacity(0.7))
-                        .fontDesign(.serif)
-                        .padding(.bottom, 50)
+                        //.padding()
                     
                     TextField("\(Image(systemName: "person.circle"))  Full Name", text:$name)
                         .padding()
@@ -134,7 +158,7 @@ struct RegistrationView: View {
                         }
                     }
                     
-                    NavigationLink(destination: ContentView()){
+                    NavigationLink(destination: LoginView()){
                         Text("Already have an Account? Log in")
                             .padding(.top, 10)
                             .foregroundColor(.white)
@@ -142,9 +166,21 @@ struct RegistrationView: View {
                     
                 
                 }
+                .padding(.bottom, 130)
             }
+            
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(
+                LinearGradient(
+                    gradient: Gradient(colors: [.white, .purple]),
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+                .edgesIgnoringSafeArea(.all) // Ensure gradient fills entire screen
+            )
         }
     }
+    
 }
 
 
