@@ -39,45 +39,43 @@ struct LoginView: View {
     
     
     var body: some View {
-        
         NavigationView {
             
             ZStack {
                 
                 VStack {
+                    
                     Text("Login")
                         .fontDesign(.serif)
                         .font(.system(size: 50))
                         .fontWeight(.bold)
                         .foregroundColor(.black)
-                        .padding(.top, 80)
+                        //.padding()
                     
-                    TextField("Email", text: $viewModel.email)
+                    TextField("\(Image(systemName: "envelope.fill"))  Email", text:$viewModel.email)
                         .padding()
-                        .frame(height: 60)
                         .keyboardType(.emailAddress)
-                        .background(
-                            Color.black.opacity(0))
-                        .border(Color.black, width: 2)
-                        .frame(width: defaultWidth, height: defaultHeight)
+                        .frame(width: 360, height: 60)
+                        .background(Color.white.opacity(0.5))
+                        .cornerRadius(10.0)
                     
-                    SecureField("Password", text: $viewModel.password)
-                        .foregroundColor(Color.black)
+                    SecureField("\(Image(systemName: "lock.fill"))  Password", text:$viewModel.password)
                         .padding()
-                        .frame(height: 60)
-                        .background(
-                            Color.black.opacity(0))
-                        .border(Color.black, width: 2)
-                        .frame(width: defaultWidth, height: defaultHeight)
-                        .padding(.top, 15)
-                        .padding(.bottom, 2)
+                        .frame(width: 360, height: 60)
+                        .background(Color.white.opacity(0.5))
+                        .cornerRadius(10)
+    
                     
                     // Aligning "Forgot Password?" to the right
                     HStack {
                         Spacer() // Pushes the text to the right
                         NavigationLink(destination: HomeView()) {
-                            Text("Forgot Password?")
-                                .multilineTextAlignment(.leading)
+                            NavigationLink(destination: ForgotPassword()){
+                                Text("Forgot Password?")
+                                    .padding(.top, 10)
+                                    .foregroundColor(.blue)
+                                    .padding(.trailing, 25)
+                            }
                         }
                     }
                     .frame(width: defaultWidth) // Set the width to match the input fields
@@ -91,20 +89,12 @@ struct LoginView: View {
                             }
                         }
                     }) {
-                        Text("LOGIN")
-                            .font(.headline)
+                        Text("Login")
                             .foregroundColor(.white)
-                            .padding()
-                            .frame(width: defaultWidth, height: defaultHeight)
-                            .background(
-                                Color(
-                                    red: 0.537,
-                                    green: 0.318,
-                                    blue: 0.627)
-                                .opacity(0.9))
-                            .cornerRadius(defaultCornerRadius)
-                            .padding(.bottom, 500)
-                            .padding(.top, 15)
+                            .bold()
+                            .frame(width: 200, height: 55)
+                            .background(Color(red: 0.0, green: 0.13, blue: 0.27).opacity(0.9))
+                            .cornerRadius(10)
                     }
                     NavigationLink(destination: HomeView(), isActive: $isLoggedIn) {
                         EmptyView()

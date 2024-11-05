@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53019D012CDAD32A00AA4DCD /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53019D002CDAD32A00AA4DCD /* ForgotPassword.swift */; };
 		890B04002CD4359600B61BEC /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B03FF2CD4359600B61BEC /* AuthenticationManager.swift */; };
 		8926FC6C2CDA75A70049DBF1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8926FC6B2CDA75A70049DBF1 /* SettingsView.swift */; };
 		8926FC6E2CDA815C0049DBF1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 8926FC6D2CDA815C0049DBF1 /* FirebaseFirestore */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		53019D002CDAD32A00AA4DCD /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
 		890B03FF2CD4359600B61BEC /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		8926FC6B2CDA75A70049DBF1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8926FC712CDABA3D0049DBF1 /* PatientDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientDashboard.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				8968D9672CD400F70067ACA3 /* LoginView.swift */,
+				53019D002CDAD32A00AA4DCD /* ForgotPassword.swift */,
 				890B03FF2CD4359600B61BEC /* AuthenticationManager.swift */,
 				89FBCA612CAB0B0A00BBDE97 /* ContentView.swift */,
 				89D072A32CAC9FF500DFE687 /* RegistrationView.swift */,
@@ -213,6 +216,7 @@
 				89FBCA602CAB0B0A00BBDE97 /* MedisyncApp.swift in Sources */,
 				8926FC752CDABC5D0049DBF1 /* AppointmentDetail.swift in Sources */,
 				8968D9662CD400A50067ACA3 /* SplashScreenView.swift in Sources */,
+				53019D012CDAD32A00AA4DCD /* ForgotPassword.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
