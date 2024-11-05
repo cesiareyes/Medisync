@@ -1,11 +1,12 @@
 import SwiftUI
+import FirebaseAuth
 
 @MainActor
 final class LoginViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
     
-    func login(){
+    func login(completion: @escaping (Bool) -> Void){
         guard !email.isEmpty, !password.isEmpty else {
             print("No email or password found")
             return
@@ -14,9 +15,10 @@ final class LoginViewModel: ObservableObject {
         
         Task {
             do {
-                let returnedUserData = try await AuthenticationManager.shared.createUser(email: email, password: password)
+                let user = try await Auth.auth().signIn(withEmail: email, password: password)
                 print("Success")
-                print(returnedUserData)
+                print(user)
+                completion(true)
             } catch {
                 print("Error: \(error)")
                 
@@ -27,14 +29,14 @@ final class LoginViewModel: ObservableObject {
 
 struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
-    
-    @State private var showingAlert = false
+    @State private var isLoggedIn = false
     @State private var defaultHeight: CGFloat = 50
     @State private var defaultWidth: CGFloat = 400
     @State private var defaultCornerRadius: CGFloat = 4
     @State private var defaultPadding: CGFloat = 10
     @State private var defaultOpacity: CGFloat = 0.5
     @State private var passWordWrong: Bool = true
+    
     
     var body: some View {
         
@@ -82,9 +84,13 @@ struct LoginView: View {
                     .padding(.bottom, 10) // Add a bit of space between the password field and the link
                     
                     
-                    Button {
-                        viewModel.login()
-                    } label: {
+                    Button(action: {
+                        viewModel.login() {success in
+                            if success {
+                                isLoggedIn = true
+                            }
+                        }
+                    }) {
                         Text("LOGIN")
                             .font(.headline)
                             .foregroundColor(.white)
@@ -100,21 +106,24 @@ struct LoginView: View {
                             .padding(.bottom, 500)
                             .padding(.top, 15)
                     }
-                    
-
-                }
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(
-                LinearGradient(
-                    gradient: Gradient(colors: [.white, .purple]),
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-                .edgesIgnoringSafeArea(.all) // Ensure gradient fills entire screen
-            )
-        }
+                    NavigationLink(destination: HomeView(), isActive: $isLoggedIn) {
+                        EmptyView()
+                    }
         
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(
+                    LinearGradient(
+                        gradient: Gradient(colors: [.white, .purple]),
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                    .edgesIgnoringSafeArea(.all) // Ensure gradient fills entire screen
+                )
+                
+            }
+            
+        }
     }
 }
 

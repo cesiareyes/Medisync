@@ -7,18 +7,33 @@
 
 import SwiftUI
 import Firebase
+import FirebaseFirestore
 
 @main
 struct MedisyncApp: App {
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
    
+    @State private var showSignInView: Bool = false
     
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
-                ContentView()
+            ZStack {
+                NavigationStack {
+                    SettingsView(showSignInView: $showSignInView)
+                }
             }
+            .onAppear {
+                let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()
+                self.showSignInView = authUser == nil ? true : false
+            }
+            
+            .fullScreenCover(isPresented: $showSignInView) {
+                NavigationStack {
+                    ContentView()
+                }
+            }
+            
         }
     }
 }
