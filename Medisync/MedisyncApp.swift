@@ -20,7 +20,7 @@ struct MedisyncApp: App {
         WindowGroup {
             ZStack {
                 NavigationStack {
-                    SettingsView(showSignInView: $showSignInView)
+                    
                 }
             }
             .onAppear {

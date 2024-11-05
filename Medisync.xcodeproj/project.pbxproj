@@ -3,13 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		53019D012CDAD32A00AA4DCD /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53019D002CDAD32A00AA4DCD /* ForgotPassword.swift */; };
 		890B04002CD4359600B61BEC /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B03FF2CD4359600B61BEC /* AuthenticationManager.swift */; };
-		8926FC6C2CDA75A70049DBF1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8926FC6B2CDA75A70049DBF1 /* SettingsView.swift */; };
 		8926FC6E2CDA815C0049DBF1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 8926FC6D2CDA815C0049DBF1 /* FirebaseFirestore */; };
 		8926FC722CDABA3D0049DBF1 /* PatientDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8926FC712CDABA3D0049DBF1 /* PatientDashboard.swift */; };
 		8926FC752CDABC5D0049DBF1 /* AppointmentDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8926FC742CDABC5D0049DBF1 /* AppointmentDetail.swift */; };
@@ -29,7 +28,6 @@
 /* Begin PBXFileReference section */
 		53019D002CDAD32A00AA4DCD /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
 		890B03FF2CD4359600B61BEC /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
-		8926FC6B2CDA75A70049DBF1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8926FC712CDABA3D0049DBF1 /* PatientDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientDashboard.swift; sourceTree = "<group>"; };
 		8926FC742CDABC5D0049DBF1 /* AppointmentDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentDetail.swift; sourceTree = "<group>"; };
 		8968D9652CD400A50067ACA3 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
@@ -43,6 +41,10 @@
 		89FBCA632CAB0B0D00BBDE97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89FBCA662CAB0B0D00BBDE97 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		53019D032CDAD90700AA4DCD /* Fonts */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Fonts; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		89FBCA592CAB0B0A00BBDE97 /* Frameworks */ = {
@@ -66,7 +68,6 @@
 				890B03FF2CD4359600B61BEC /* AuthenticationManager.swift */,
 				89FBCA612CAB0B0A00BBDE97 /* ContentView.swift */,
 				89D072A32CAC9FF500DFE687 /* RegistrationView.swift */,
-				8926FC6B2CDA75A70049DBF1 /* SettingsView.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -107,6 +108,7 @@
 		89FBCA5E2CAB0B0A00BBDE97 /* Medisync */ = {
 			isa = PBXGroup;
 			children = (
+				53019D032CDAD90700AA4DCD /* Fonts */,
 				89FBCA5F2CAB0B0A00BBDE97 /* MedisyncApp.swift */,
 				890B03FC2CD433DD00B61BEC /* Authentication */,
 				8968D9652CD400A50067ACA3 /* SplashScreenView.swift */,
@@ -141,6 +143,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				53019D032CDAD90700AA4DCD /* Fonts */,
 			);
 			name = Medisync;
 			packageProductDependencies = (
@@ -207,7 +212,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8968D9682CD400F70067ACA3 /* LoginView.swift in Sources */,
-				8926FC6C2CDA75A70049DBF1 /* SettingsView.swift in Sources */,
 				89D072A42CAC9FF500DFE687 /* RegistrationView.swift in Sources */,
 				890B04002CD4359600B61BEC /* AuthenticationManager.swift in Sources */,
 				89D072A62CACBFC800DFE687 /* HomeView.swift in Sources */,

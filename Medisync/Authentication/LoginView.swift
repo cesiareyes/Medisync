@@ -6,12 +6,11 @@ final class LoginViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
     
-    func login(completion: @escaping (Bool) -> Void){
+    func login(completion: @escaping (Bool) -> Void) {
         guard !email.isEmpty, !password.isEmpty else {
             print("No email or password found")
             return
         }
-        
         
         Task {
             do {
@@ -21,7 +20,6 @@ final class LoginViewModel: ObservableObject {
                 completion(true)
             } catch {
                 print("Error: \(error)")
-                
             }
         }
     }
@@ -37,53 +35,46 @@ struct LoginView: View {
     @State private var defaultOpacity: CGFloat = 0.5
     @State private var passWordWrong: Bool = true
     
-    
     var body: some View {
         NavigationView {
-            
             ZStack {
-                
                 VStack {
-                    
                     Text("Login")
-                        .fontDesign(.serif)
-                        .font(.system(size: 50))
-                        .fontWeight(.bold)
+                        .font(.system(size: 50, weight: .bold, design: .default)) // Use San Francisco
                         .foregroundColor(.black)
-                        //.padding()
                     
-                    TextField("\(Image(systemName: "envelope.fill"))  Email", text:$viewModel.email)
+                    TextField("\(Image(systemName: "envelope.fill"))  Email", text: $viewModel.email)
                         .padding()
                         .keyboardType(.emailAddress)
                         .frame(width: 360, height: 60)
                         .background(Color.white.opacity(0.5))
                         .cornerRadius(10.0)
+                        .font(.system(size: 16, design: .default)) // Use San Francisco
                     
-                    SecureField("\(Image(systemName: "lock.fill"))  Password", text:$viewModel.password)
+                    SecureField("\(Image(systemName: "lock.fill"))  Password", text: $viewModel.password)
                         .padding()
                         .frame(width: 360, height: 60)
                         .background(Color.white.opacity(0.5))
                         .cornerRadius(10)
+                        .font(.system(size: 16, design: .default)) // Use San Francisco
     
-                    
-                    // Aligning "Forgot Password?" to the right
                     HStack {
-                        Spacer() // Pushes the text to the right
+                        Spacer()
                         NavigationLink(destination: HomeView()) {
-                            NavigationLink(destination: ForgotPassword()){
+                            NavigationLink(destination: ForgotPassword()) {
                                 Text("Forgot Password?")
                                     .padding(.top, 10)
                                     .foregroundColor(.blue)
                                     .padding(.trailing, 25)
+                                    .font(.system(size: 14, design: .default)) // Use San Francisco
                             }
                         }
                     }
-                    .frame(width: defaultWidth) // Set the width to match the input fields
-                    .padding(.bottom, 10) // Add a bit of space between the password field and the link
-                    
+                    .frame(width: defaultWidth)
+                    .padding(.bottom, 10)
                     
                     Button(action: {
-                        viewModel.login() {success in
+                        viewModel.login() { success in
                             if success {
                                 isLoggedIn = true
                             }
@@ -95,11 +86,12 @@ struct LoginView: View {
                             .frame(width: 200, height: 55)
                             .background(Color(red: 0.0, green: 0.13, blue: 0.27).opacity(0.9))
                             .cornerRadius(10)
+                            .font(.system(size: 18, weight: .bold, design: .default)) // Use San Francisco
                     }
+                    
                     NavigationLink(destination: HomeView(), isActive: $isLoggedIn) {
                         EmptyView()
                     }
-        
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(
@@ -108,11 +100,9 @@ struct LoginView: View {
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
                     )
-                    .edgesIgnoringSafeArea(.all) // Ensure gradient fills entire screen
+                    .edgesIgnoringSafeArea(.all)
                 )
-                
             }
-            
         }
     }
 }

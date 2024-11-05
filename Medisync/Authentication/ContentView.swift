@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Medisync
-//
-//  Created by Cesia Reyes on 9/30/24.
-//
-
 import SwiftUI
 
 struct ContentView: View {
@@ -16,10 +9,9 @@ struct ContentView: View {
     @State private var passWordWrong: Bool = true
 
     var body: some View {
-        
         NavigationView {
             ZStack {
-                VStack{
+                VStack {
                     ZStack {
                         Image("SplashScreen")
                             .resizable()
@@ -28,10 +20,10 @@ struct ContentView: View {
                             .mask(
                                 LinearGradient(
                                     gradient: Gradient(stops: [
-                                        .init(color: .clear, location: 0.0), // Fade in at the top
-                                        .init(color: .white, location: 0.2), // Fully visible between 20% and 80% height
+                                        .init(color: .clear, location: 0.0),
+                                        .init(color: .white, location: 0.2),
                                         .init(color: .white, location: 0.8),
-                                        .init(color: .clear, location: 1.0)  // Fade out at the bottom
+                                        .init(color: .clear, location: 1.0)
                                     ]),
                                     startPoint: .top,
                                     endPoint: .bottom
@@ -39,19 +31,17 @@ struct ContentView: View {
                             )
                         
                         Text("MediSync")
-                            .fontDesign(.serif)
-                            .font(.system(size: 50))
-                            .fontWeight(.bold)
-                            .foregroundColor(.black) // Ensure the text is white
+                            .font(.system(size: 50, weight: .bold, design: .default)) // San Francisco
+                            .foregroundColor(.black)
                             .padding(.bottom, 500)
                     }
                     
                     Spacer()
                     
                     VStack {
-                        NavigationLink(destination: RegistrationView()){
+                        NavigationLink(destination: RegistrationView()) {
                             Text("SIGN UP")
-                                .font(.headline)
+                                .font(.headline) // San Francisco headline
                                 .foregroundColor(.white)
                                 .padding()
                                 .frame(width: 420, height: defaultHeight)
@@ -59,12 +49,14 @@ struct ContentView: View {
                                     Color(
                                         red: 0.537,
                                         green: 0.318,
-                                        blue: 0.627)
-                                    .opacity(0.9))
+                                        blue: 0.627
+                                    )
+                                    .opacity(0.9)
+                                )
                         }
-                        NavigationLink(destination: LoginView()){
+                        NavigationLink(destination: LoginView()) {
                             Text("LOGIN")
-                                .font(.headline)
+                                .font(.headline) // San Francisco headline
                                 .foregroundColor(.white)
                                 .padding()
                                 .frame(width: 420, height: defaultHeight)
@@ -72,18 +64,27 @@ struct ContentView: View {
                                     Color(
                                         red: 0.537,
                                         green: 0.318,
-                                        blue: 0.627)
-                                    .opacity(0.9))
+                                        blue: 0.627
+                                    )
+                                    .opacity(0.9)
+                                )
                         }
-                    }.padding(.bottom,50)
-                    
-                
+                    }
+                    .padding(.bottom, 50)
                     
                     .alert(isPresented: $showingAlert) {
-                        Alert(title: Text("Invalid Login"), message: Text("Please check your email and password"), dismissButton: .default(Text("OK")))
+                        Alert(
+                            title: Text("Invalid Login")
+                                .font(.system(size: 18, weight: .bold, design: .default)), // San Francisco
+                            message: Text("Please check your email and password")
+                                .font(.system(size: 16, design: .default)), // San Francisco
+                            dismissButton: .default(
+                                Text("OK")
+                                    .font(.system(size: 16, weight: .bold, design: .default)) // San Francisco
+                            )
+                        )
                     }
                 }
-                
                 .background(
                     LinearGradient(
                         gradient: Gradient(colors: [.white, .purple]),
