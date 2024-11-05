@@ -63,10 +63,10 @@ struct LoginView: View {
                         NavigationLink(destination: HomeView()) {
                             NavigationLink(destination: ForgotPassword()) {
                                 Text("Forgot Password?")
-                                    .padding(.top, 10)
+                                    .padding(.top, 2)
                                     .foregroundColor(.blue)
                                     .padding(.trailing, 25)
-                                    .font(.system(size: 14, design: .default)) // Use San Francisco
+                                    .font(.system(size: 16, weight: .semibold, design: .default)) // Use San Francisco
                             }
                         }
                     }
@@ -86,6 +86,13 @@ struct LoginView: View {
                             .frame(width: 200, height: 55)
                             .background(Color(red: 0.0, green: 0.13, blue: 0.27).opacity(0.9))
                             .cornerRadius(10)
+                            .font(.system(size: 18, weight: .semibold, design: .default)) // Use San Francisco
+                    }
+                    NavigationLink(destination: ForgotPassword()) {
+                        Text("Not a user? Signup")
+                            .padding(.top, 10)
+                            .foregroundColor(.white)
+                            .padding(.trailing, 25)
                             .font(.system(size: 18, weight: .semibold, design: .default)) // Use San Francisco
                     }
                     
