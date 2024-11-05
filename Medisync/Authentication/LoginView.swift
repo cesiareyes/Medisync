@@ -40,7 +40,7 @@ struct LoginView: View {
             ZStack {
                 VStack {
                     Text("Login")
-                        .font(.system(size: 50, weight: .bold, design: .default)) // Use San Francisco
+                        .font(.system(size: 50, weight: .semibold, design: .default)) // Use San Francisco
                         .foregroundColor(.black)
                     
                     TextField("\(Image(systemName: "envelope.fill"))  Email", text: $viewModel.email)
@@ -86,7 +86,7 @@ struct LoginView: View {
                             .frame(width: 200, height: 55)
                             .background(Color(red: 0.0, green: 0.13, blue: 0.27).opacity(0.9))
                             .cornerRadius(10)
-                            .font(.system(size: 18, weight: .bold, design: .default)) // Use San Francisco
+                            .font(.system(size: 18, weight: .semibold, design: .default)) // Use San Francisco
                     }
                     
                     NavigationLink(destination: HomeView(), isActive: $isLoggedIn) {

@@ -13,13 +13,13 @@ struct ForgotPassword: View {
                     Spacer().frame(height: 4)
                     
                     Text("Find your account")
-                        .font(.system(size: 30, weight: .bold, design: .default)) // Use San Francisco
+                        .font(.system(size: 30, weight: .semibold, design: .default)) // Use San Francisco
                         .foregroundColor(.black)
                     Spacer()
                     
                     HStack {
                         Text("Enter phone number")
-                            .font(.system(size: 20, weight: .bold, design: .default)) // Use San Francisco
+                            .font(.system(size: 20, weight: .semibold, design: .default)) // Use San Francisco
                             .foregroundColor(.black)
                         Spacer()
                     }
@@ -45,7 +45,7 @@ struct ForgotPassword: View {
                             .frame(width: 200, height: 55)
                             .background(Color(red: 0.0, green: 0.13, blue: 0.27).opacity(0.9))
                             .cornerRadius(10)
-                            .font(.system(size: 18, weight: .bold, design: .default)) // Use San Francisco
+                            .font(.system(size: 18, weight: .semibold, design: .default)) // Use San Francisco
                     }
                     
                     NavigationLink(destination: HomeView(), isActive: $isRegistered) {
