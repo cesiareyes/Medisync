@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -41,6 +41,12 @@
 		89FBCA632CAB0B0D00BBDE97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89FBCA662CAB0B0D00BBDE97 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		536FFA672CDC288200B5518B /* Doctor */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Doctor; sourceTree = "<group>"; };
+		536FFA6A2CDC28AB00B5518B /* LabTech */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = LabTech; sourceTree = "<group>"; };
+		536FFA6B2CDC28B600B5518B /* Nurse */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Nurse; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		89FBCA592CAB0B0A00BBDE97 /* Frameworks */ = {
@@ -107,6 +113,9 @@
 				89FBCA5F2CAB0B0A00BBDE97 /* MedisyncApp.swift */,
 				890B03FC2CD433DD00B61BEC /* Authentication */,
 				8968D9652CD400A50067ACA3 /* SplashScreenView.swift */,
+				536FFA6B2CDC28B600B5518B /* Nurse */,
+				536FFA6A2CDC28AB00B5518B /* LabTech */,
+				536FFA672CDC288200B5518B /* Doctor */,
 				8926FC732CDABA450049DBF1 /* Patient */,
 				89D072A52CACBFC800DFE687 /* WelcomeScreen.swift */,
 				898B533B2CB03BB400749C8F /* GoogleService-Info.plist */,
