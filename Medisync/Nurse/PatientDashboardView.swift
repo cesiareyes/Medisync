@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
-import FirebaseFirestore
-import FirebaseStorage
-import FirebaseFirestoreSwift
 
+struct Patient: Identifiable, Codable {
+    var id: String
+    var name: String
+    var age: String
+}
 
 struct PatientDashboardView: View {
     @State var patientData: [Patient] = []
@@ -63,6 +65,18 @@ struct PatientDashboardView: View {
         }
         .onAppear {
             fetchPatientData()
+        }
+    }
+    
+    func fetchPatientData() {
+        if let url = Bundle.main.url(forResource: "patients", withExtension: "json") {
+            do {
+                let data = try Data(contentsOf: url)
+                let decoder = JSONDecoder()
+                patientData = try decoder.decode([Patient].self, from: data)
+            } catch {
+                print("Error loading JSON data: \(error)")
+            }
         }
     }
 }
