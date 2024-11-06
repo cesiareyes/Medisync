@@ -63,7 +63,7 @@ struct LoginView: View {
                         NavigationLink(destination: HomeView()) {
                             NavigationLink(destination: ForgotPassword()) {
                                 Text("Forgot Password?")
-                                    .padding(.top, 2)
+                                    .padding(.top, 3)
                                     .foregroundColor(.blue)
                                     .padding(.trailing, 25)
                                     .font(.system(size: 16, weight: .semibold, design: .default)) // Use San Francisco
@@ -71,7 +71,7 @@ struct LoginView: View {
                         }
                     }
                     .frame(width: defaultWidth)
-                    .padding(.bottom, 10)
+                    .padding(.bottom, 20)
                     
                     Button(action: {
                         viewModel.login() { success in
@@ -92,7 +92,7 @@ struct LoginView: View {
                         Text("Not a user? Signup")
                             .padding(.top, 10)
                             .foregroundColor(.white)
-                            .padding(.trailing, 25)
+                            .multilineTextAlignment(.center)
                             .font(.system(size: 18, weight: .semibold, design: .default)) // Use San Francisco
                     }
                     
@@ -112,6 +112,7 @@ struct LoginView: View {
             }
         }
     }
+    
 }
 
 #Preview {
