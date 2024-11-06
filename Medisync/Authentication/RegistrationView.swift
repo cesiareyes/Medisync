@@ -56,7 +56,7 @@ struct RegistrationView: View {
                 VStack {
                     Image("Medisync_Logo")
                         .resizable()
-                        .frame(width: 250, height: 250)
+                        .frame(width: 200, height: 200)
                         .padding(.top, 80)
                     
                     Spacer().frame(height: 4)
@@ -95,7 +95,7 @@ struct RegistrationView: View {
                         .font(.system(size: 16, design: .default)) // San Francisco
                     
                     HStack {
-                        Text("Pick Your Role")
+                        Text("I am a:")
                             .font(.title3) // San Francisco
                             .padding()
                         

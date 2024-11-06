@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -41,10 +41,6 @@
 		89FBCA632CAB0B0D00BBDE97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89FBCA662CAB0B0D00BBDE97 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		88EC84402CDB310C00D09A5B /* Nurse */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Nurse; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		89FBCA592CAB0B0A00BBDE97 /* Frameworks */ = {
@@ -108,7 +104,6 @@
 		89FBCA5E2CAB0B0A00BBDE97 /* Medisync */ = {
 			isa = PBXGroup;
 			children = (
-				88EC84402CDB310C00D09A5B /* Nurse */,
 				89FBCA5F2CAB0B0A00BBDE97 /* MedisyncApp.swift */,
 				890B03FC2CD433DD00B61BEC /* Authentication */,
 				8968D9652CD400A50067ACA3 /* SplashScreenView.swift */,
@@ -143,9 +138,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				88EC84402CDB310C00D09A5B /* Nurse */,
 			);
 			name = Medisync;
 			packageProductDependencies = (

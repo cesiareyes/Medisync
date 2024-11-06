@@ -41,33 +41,21 @@ struct ContentView: View {
                     VStack {
                         NavigationLink(destination: RegistrationView()) {
                             Text("SIGN UP")
-                                .font(.headline) // San Francisco headline
                                 .foregroundColor(.white)
-                                .padding()
-                                .frame(width: 420, height: defaultHeight)
-                                .background(
-                                    Color(
-                                        red: 0.537,
-                                        green: 0.318,
-                                        blue: 0.627
-                                    )
-                                    .opacity(0.9)
-                                )
+                                .bold()
+                                .frame(width: 200, height: 55)
+                                .background(Color(red: 0.0, green: 0.13, blue: 0.27).opacity(0.9))
+                                .cornerRadius(10)
+                                .font(.system(size: 18, weight: .semibold, design: .default)) // Use San Francisco
                         }
                         NavigationLink(destination: LoginView()) {
                             Text("LOGIN")
-                                .font(.headline) // San Francisco headline
                                 .foregroundColor(.white)
-                                .padding()
-                                .frame(width: 420, height: defaultHeight)
-                                .background(
-                                    Color(
-                                        red: 0.537,
-                                        green: 0.318,
-                                        blue: 0.627
-                                    )
-                                    .opacity(0.9)
-                                )
+                                .bold()
+                                .frame(width: 200, height: 55)
+                                .background(Color(red: 0.0, green: 0.13, blue: 0.27).opacity(0.9))
+                                .cornerRadius(10)
+                                .font(.system(size: 18, weight: .semibold, design: .default)) // Use San Francisco
                         }
                     }
                     .padding(.bottom, 50)
