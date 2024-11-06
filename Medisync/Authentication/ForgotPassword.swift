@@ -53,7 +53,7 @@ struct ForgotPassword: View {
                             .padding(.top, 10)
                     }
                     
-                    NavigationLink(destination: HomeView(), isActive: $isRegistered) {
+                    NavigationLink(destination: WelcomeScreen(), isActive: $isRegistered) {
                         EmptyView()
                     }
                     

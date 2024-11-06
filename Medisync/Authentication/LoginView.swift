@@ -60,7 +60,7 @@ struct LoginView: View {
     
                     HStack {
                         Spacer()
-                        NavigationLink(destination: HomeView()) {
+                        NavigationLink(destination: WelcomeScreen()) {
                             NavigationLink(destination: ForgotPassword()) {
                                 Text("Forgot Password?")
                                     .padding(.top, 3)
@@ -96,7 +96,7 @@ struct LoginView: View {
                             .font(.system(size: 18, weight: .semibold, design: .default)) // Use San Francisco
                     }
                     
-                    NavigationLink(destination: HomeView(), isActive: $isLoggedIn) {
+                    NavigationLink(destination: WelcomeScreen(), isActive: $isLoggedIn) {
                         EmptyView()
                     }
                 }

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct HomeView: View {
+struct WelcomeScreen: View {
     var body: some View {
         VStack {
             Text("Welcome to MediSync!")
@@ -27,5 +27,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    WelcomeScreen()
 }

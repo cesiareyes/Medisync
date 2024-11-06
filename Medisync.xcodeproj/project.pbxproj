@@ -18,7 +18,7 @@
 		898B533F2CB03D9A00749C8F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 898B533E2CB03D9A00749C8F /* FirebaseAnalytics */; };
 		898B53422CB044E500749C8F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 898B53412CB044E500749C8F /* FirebaseAuth */; };
 		89D072A42CAC9FF500DFE687 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D072A32CAC9FF500DFE687 /* RegistrationView.swift */; };
-		89D072A62CACBFC800DFE687 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D072A52CACBFC800DFE687 /* HomeView.swift */; };
+		89D072A62CACBFC800DFE687 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D072A52CACBFC800DFE687 /* WelcomeScreen.swift */; };
 		89FBCA602CAB0B0A00BBDE97 /* MedisyncApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FBCA5F2CAB0B0A00BBDE97 /* MedisyncApp.swift */; };
 		89FBCA622CAB0B0A00BBDE97 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FBCA612CAB0B0A00BBDE97 /* ContentView.swift */; };
 		89FBCA642CAB0B0D00BBDE97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89FBCA632CAB0B0D00BBDE97 /* Assets.xcassets */; };
@@ -34,7 +34,7 @@
 		8968D9672CD400F70067ACA3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		898B533B2CB03BB400749C8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89D072A32CAC9FF500DFE687 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
-		89D072A52CACBFC800DFE687 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		89D072A52CACBFC800DFE687 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
 		89FBCA5C2CAB0B0A00BBDE97 /* Medisync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Medisync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89FBCA5F2CAB0B0A00BBDE97 /* MedisyncApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedisyncApp.swift; sourceTree = "<group>"; };
 		89FBCA612CAB0B0A00BBDE97 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 				890B03FC2CD433DD00B61BEC /* Authentication */,
 				8968D9652CD400A50067ACA3 /* SplashScreenView.swift */,
 				8926FC732CDABA450049DBF1 /* Patient */,
-				89D072A52CACBFC800DFE687 /* HomeView.swift */,
+				89D072A52CACBFC800DFE687 /* WelcomeScreen.swift */,
 				898B533B2CB03BB400749C8F /* GoogleService-Info.plist */,
 				89FBCA632CAB0B0D00BBDE97 /* Assets.xcassets */,
 				89FBCA652CAB0B0D00BBDE97 /* Preview Content */,
@@ -206,7 +206,7 @@
 				8968D9682CD400F70067ACA3 /* LoginView.swift in Sources */,
 				89D072A42CAC9FF500DFE687 /* RegistrationView.swift in Sources */,
 				890B04002CD4359600B61BEC /* AuthenticationManager.swift in Sources */,
-				89D072A62CACBFC800DFE687 /* HomeView.swift in Sources */,
+				89D072A62CACBFC800DFE687 /* WelcomeScreen.swift in Sources */,
 				8926FC722CDABA3D0049DBF1 /* PatientDashboard.swift in Sources */,
 				89FBCA622CAB0B0A00BBDE97 /* ContentView.swift in Sources */,
 				89FBCA602CAB0B0A00BBDE97 /* MedisyncApp.swift in Sources */,

@@ -126,7 +126,7 @@ struct RegistrationView: View {
                             .cornerRadius(10)
                             .font(.system(size: 18, weight: .semibold, design: .default)) // San Francisco
                     }
-                    NavigationLink(destination: HomeView(), isActive: $isRegistered) {
+                    NavigationLink(destination: WelcomeScreen(), isActive: $isRegistered) {
                         EmptyView()
                     }
                     
