@@ -19,9 +19,6 @@ struct MedisyncApp: App {
     var body: some Scene {
         WindowGroup {
             ZStack {
-                NavigationStack {
-                    
-                }
             }
             .onAppear {
                 let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()

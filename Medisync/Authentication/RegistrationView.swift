@@ -1,6 +1,14 @@
+//
+//  RegistrationView.swift
+//  Medisync
+//
+//  Created by Cesia Reyes on 10/1/24.
+//
+
 import SwiftUI
 import FirebaseAuth
 import FirebaseFirestore
+
 
 enum Role: String, CaseIterable {
     case doctor
@@ -16,6 +24,8 @@ final class RegistrationViewModel: ObservableObject {
     @Published var name: String = ""
     @Published var dateOfBirth = Date()
     @Published var role: Role = .patient
+    
+    
     
     func registerUser(completion: @escaping (Bool) -> Void) {
         guard !email.isEmpty, !password.isEmpty, !name.isEmpty else {
@@ -43,68 +53,70 @@ final class RegistrationViewModel: ObservableObject {
                 print("Error: \(error)")
             }
         }
+
     }
 }
+
 
 struct RegistrationView: View {
     @StateObject private var viewModel = RegistrationViewModel()
     @State private var isRegistered = false
     
     var body: some View {
-        NavigationView {
+        NavigationView{
+            
             ZStack {
-                VStack {
+                VStack{
                     Image("Medisync_Logo")
                         .resizable()
-                        .frame(width: 200, height: 200)
+                        .frame(width: 250, height: 250)
                         .padding(.top, 80)
                     
                     Spacer().frame(height: 4)
                     
                     Text("Sign Up")
-                        .font(.system(size: 50, weight: .semibold, design: .default)) // San Francisco
+                        .fontDesign(.serif)
+                        .font(.system(size: 50))
+                        .fontWeight(.bold)
                         .foregroundColor(.black)
+                        //.padding()
                     
-                    TextField("\(Image(systemName: "person.circle"))  Full Name", text: $viewModel.name)
+                    TextField("\(Image(systemName: "person.circle"))  Full Name", text:$viewModel.name)
                         .padding()
                         .frame(width: 360, height: 60)
                         .background(Color.white.opacity(0.5))
                         .cornerRadius(10.0)
-                        .font(.system(size: 16, design: .default)) // San Francisco
                     
-                    TextField("\(Image(systemName: "envelope.fill"))  Email", text: $viewModel.email)
+                    TextField("\(Image(systemName: "envelope.fill"))  Email", text:$viewModel.email)
                         .padding()
                         .keyboardType(.emailAddress)
                         .frame(width: 360, height: 60)
                         .background(Color.white.opacity(0.5))
                         .cornerRadius(10.0)
-                        .font(.system(size: 16, design: .default)) // San Francisco
                     
-                    SecureField("\(Image(systemName: "lock.fill"))  Password", text: $viewModel.password)
+                    SecureField("\(Image(systemName: "lock.fill"))  Password", text:$viewModel.password)
                         .padding()
                         .frame(width: 360, height: 60)
                         .background(Color.white.opacity(0.5))
                         .cornerRadius(10)
-                        .font(.system(size: 16, design: .default)) // San Francisco
                     
-                    DatePicker("\(Image(systemName: "calendar"))  Birthday", selection: $viewModel.dateOfBirth, displayedComponents: .date)
+                    DatePicker("\(Image(systemName: "birthday.cake"))  Birthday",selection: $viewModel.dateOfBirth, displayedComponents: .date)
                         .padding()
                         .frame(width: 360, height: 60)
                         .background(Color.white.opacity(0.5))
                         .cornerRadius(10)
-                        .font(.system(size: 16, design: .default)) // San Francisco
                     
-                    HStack {
-                        Text("I am a:")
-                            .font(.title3) // San Francisco
+                    HStack{
+                        Text("Pick Your Role")
+                            .font(.title3)
                             .padding()
-                        
                         Picker("Select Role", selection: $viewModel.role) {
                             ForEach(Role.allCases, id: \.self) { role in
                                 Text(role.rawValue.capitalized)
                                     .tag(role)
                             }
                         }
+
                         .foregroundColor(.black)
                         .pickerStyle(.menu)
                         .accentColor(.black)
@@ -124,21 +136,24 @@ struct RegistrationView: View {
                             .frame(width: 200, height: 55)
                             .background(Color(red: 0.0, green: 0.13, blue: 0.27).opacity(0.9))
                             .cornerRadius(10)
-                            .font(.system(size: 18, weight: .semibold, design: .default)) // San Francisco
                     }
                     NavigationLink(destination: WelcomeScreen(), isActive: $isRegistered) {
                         EmptyView()
                     }
                     
-                    NavigationLink(destination: LoginView()) {
+                    
+                    
+                    NavigationLink(destination: LoginView()){
                         Text("Already have an Account? Log in")
                             .padding(.top, 10)
                             .foregroundColor(.white)
-                            .font(.system(size: 14, design: .default)) // San Francisco
                     }
+                    
+                
                 }
                 .padding(.bottom, 130)
             }
+            
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(
                 LinearGradient(
@@ -146,11 +161,15 @@ struct RegistrationView: View {
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing
                 )
-                .edgesIgnoringSafeArea(.all)
+                .edgesIgnoringSafeArea(.all) // Ensure gradient fills entire screen
             )
+            
         }
     }
+    
 }
+
+
 
 #Preview {
     RegistrationView()

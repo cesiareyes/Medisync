@@ -19,6 +19,11 @@
 		898B53422CB044E500749C8F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 898B53412CB044E500749C8F /* FirebaseAuth */; };
 		89D072A42CAC9FF500DFE687 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D072A32CAC9FF500DFE687 /* RegistrationView.swift */; };
 		89D072A62CACBFC800DFE687 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D072A52CACBFC800DFE687 /* WelcomeScreen.swift */; };
+		89EB34542CDD75E500D6C524 /* PatientModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB34532CDD75E500D6C524 /* PatientModels.swift */; };
+		89EB34562CDD763200D6C524 /* AppointmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB34552CDD763200D6C524 /* AppointmentsView.swift */; };
+		89EB34582CDD767900D6C524 /* MedicalRecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB34572CDD767900D6C524 /* MedicalRecordsView.swift */; };
+		89EB345A2CDD76E800D6C524 /* SymptomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB34592CDD76E800D6C524 /* SymptomsView.swift */; };
+		89EB345C2CDD772700D6C524 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB345B2CDD772700D6C524 /* CheckInView.swift */; };
 		89FBCA602CAB0B0A00BBDE97 /* MedisyncApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FBCA5F2CAB0B0A00BBDE97 /* MedisyncApp.swift */; };
 		89FBCA622CAB0B0A00BBDE97 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FBCA612CAB0B0A00BBDE97 /* ContentView.swift */; };
 		89FBCA642CAB0B0D00BBDE97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89FBCA632CAB0B0D00BBDE97 /* Assets.xcassets */; };
@@ -35,6 +40,11 @@
 		898B533B2CB03BB400749C8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89D072A32CAC9FF500DFE687 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		89D072A52CACBFC800DFE687 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
+		89EB34532CDD75E500D6C524 /* PatientModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientModels.swift; sourceTree = "<group>"; };
+		89EB34552CDD763200D6C524 /* AppointmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsView.swift; sourceTree = "<group>"; };
+		89EB34572CDD767900D6C524 /* MedicalRecordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecordsView.swift; sourceTree = "<group>"; };
+		89EB34592CDD76E800D6C524 /* SymptomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomsView.swift; sourceTree = "<group>"; };
+		89EB345B2CDD772700D6C524 /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
 		89FBCA5C2CAB0B0A00BBDE97 /* Medisync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Medisync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89FBCA5F2CAB0B0A00BBDE97 /* MedisyncApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedisyncApp.swift; sourceTree = "<group>"; };
 		89FBCA612CAB0B0A00BBDE97 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -78,7 +88,12 @@
 			isa = PBXGroup;
 			children = (
 				8926FC712CDABA3D0049DBF1 /* PatientDashboard.swift */,
+				89EB345B2CDD772700D6C524 /* CheckInView.swift */,
+				89EB34592CDD76E800D6C524 /* SymptomsView.swift */,
+				89EB34552CDD763200D6C524 /* AppointmentsView.swift */,
+				89EB34532CDD75E500D6C524 /* PatientModels.swift */,
 				8926FC742CDABC5D0049DBF1 /* AppointmentDetail.swift */,
+				89EB34572CDD767900D6C524 /* MedicalRecordsView.swift */,
 			);
 			path = Patient;
 			sourceTree = "<group>";
@@ -212,10 +227,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89EB34542CDD75E500D6C524 /* PatientModels.swift in Sources */,
 				8968D9682CD400F70067ACA3 /* LoginView.swift in Sources */,
+				89EB345C2CDD772700D6C524 /* CheckInView.swift in Sources */,
+				89EB34562CDD763200D6C524 /* AppointmentsView.swift in Sources */,
 				89D072A42CAC9FF500DFE687 /* RegistrationView.swift in Sources */,
+				89EB345A2CDD76E800D6C524 /* SymptomsView.swift in Sources */,
 				890B04002CD4359600B61BEC /* AuthenticationManager.swift in Sources */,
 				89D072A62CACBFC800DFE687 /* WelcomeScreen.swift in Sources */,
+				89EB34582CDD767900D6C524 /* MedicalRecordsView.swift in Sources */,
 				8926FC722CDABA3D0049DBF1 /* PatientDashboard.swift in Sources */,
 				89FBCA622CAB0B0A00BBDE97 /* ContentView.swift in Sources */,
 				89FBCA602CAB0B0A00BBDE97 /* MedisyncApp.swift in Sources */,
