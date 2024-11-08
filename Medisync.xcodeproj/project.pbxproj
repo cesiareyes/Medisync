@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		53019D012CDAD32A00AA4DCD /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53019D002CDAD32A00AA4DCD /* ForgotPassword.swift */; };
+		536FFA722CDC3D1900B5518B /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 536FFA712CDC3D1900B5518B /* FirebaseDatabase */; };
 		890B04002CD4359600B61BEC /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B03FF2CD4359600B61BEC /* AuthenticationManager.swift */; };
 		8926FC6E2CDA815C0049DBF1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 8926FC6D2CDA815C0049DBF1 /* FirebaseFirestore */; };
 		8926FC722CDABA3D0049DBF1 /* PatientDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8926FC712CDABA3D0049DBF1 /* PatientDashboard.swift */; };
@@ -42,10 +43,28 @@
 		89FBCA662CAB0B0D00BBDE97 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		539ADCE02CDD700500A18C35 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				UserClasses.swift,
+			);
+			target = 89FBCA5B2CAB0B0A00BBDE97 /* Medisync */;
+		};
+		539ADCE62CDD7E6500A18C35 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				NurseDashboard.swift,
+			);
+			target = 89FBCA5B2CAB0B0A00BBDE97 /* Medisync */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		536FFA672CDC288200B5518B /* Doctor */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Doctor; sourceTree = "<group>"; };
 		536FFA6A2CDC28AB00B5518B /* LabTech */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = LabTech; sourceTree = "<group>"; };
-		536FFA6B2CDC28B600B5518B /* Nurse */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Nurse; sourceTree = "<group>"; };
+		536FFA6B2CDC28B600B5518B /* Nurse */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (539ADCE62CDD7E6500A18C35 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Nurse; sourceTree = "<group>"; };
+		536FFA6C2CDC2A8F00B5518B /* Database */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (539ADCE02CDD700500A18C35 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Database; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +74,7 @@
 			files = (
 				898B533F2CB03D9A00749C8F /* FirebaseAnalytics in Frameworks */,
 				898B53422CB044E500749C8F /* FirebaseAuth in Frameworks */,
+				536FFA722CDC3D1900B5518B /* FirebaseDatabase in Frameworks */,
 				8926FC6E2CDA815C0049DBF1 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,6 +133,7 @@
 				89FBCA5F2CAB0B0A00BBDE97 /* MedisyncApp.swift */,
 				890B03FC2CD433DD00B61BEC /* Authentication */,
 				8968D9652CD400A50067ACA3 /* SplashScreenView.swift */,
+				536FFA6C2CDC2A8F00B5518B /* Database */,
 				536FFA6B2CDC28B600B5518B /* Nurse */,
 				536FFA6A2CDC28AB00B5518B /* LabTech */,
 				536FFA672CDC288200B5518B /* Doctor */,
@@ -153,6 +174,7 @@
 				898B533E2CB03D9A00749C8F /* FirebaseAnalytics */,
 				898B53412CB044E500749C8F /* FirebaseAuth */,
 				8926FC6D2CDA815C0049DBF1 /* FirebaseFirestore */,
+				536FFA712CDC3D1900B5518B /* FirebaseDatabase */,
 			);
 			productName = Medisync;
 			productReference = 89FBCA5C2CAB0B0A00BBDE97 /* Medisync.app */;
@@ -443,6 +465,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		536FFA712CDC3D1900B5518B /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseDatabase;
+		};
 		8926FC6D2CDA815C0049DBF1 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 898B533D2CB03D9A00749C8F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
