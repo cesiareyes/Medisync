@@ -23,9 +23,7 @@ final class RegistrationViewModel: ObservableObject {
     @Published var password: String = ""
     @Published var name: String = ""
     @Published var dateOfBirth = Date()
-    @Published var role: Role = .patient
-    
-    
+    @Published var selectedRole: Role? = .patient
     
     func registerUser(completion: @escaping (Bool) -> Void) {
         guard !email.isEmpty, !password.isEmpty, !name.isEmpty else {
@@ -45,7 +43,7 @@ final class RegistrationViewModel: ObservableObject {
                 try await userRef.setData([
                     "name": name,
                     "dateOfBirth": dateOfBirth,
-                    "role": role.rawValue // Convert to String
+                    "role": selectedRole?.rawValue ?? "unknown" // Convert to String
                 ])
                 
                 completion(true)
@@ -61,6 +59,7 @@ final class RegistrationViewModel: ObservableObject {
 struct RegistrationView: View {
     @StateObject private var viewModel = RegistrationViewModel()
     @State private var isRegistered = false
+    @State private var selectedRole: Role? = nil
     
     var body: some View {
         NavigationView{
@@ -110,7 +109,7 @@ struct RegistrationView: View {
                         Text("Pick Your Role")
                             .font(.title3)
                             .padding()
-                        Picker("Select Role", selection: $viewModel.role) {
+                        Picker("Select Role", selection: $viewModel.selectedRole) {
                             ForEach(Role.allCases, id: \.self) { role in
                                 Text(role.rawValue.capitalized)
                                     .tag(role)
@@ -126,6 +125,7 @@ struct RegistrationView: View {
                     Button(action: {
                         viewModel.registerUser() { success in
                             if success {
+                                selectedRole = viewModel.selectedRole
                                 isRegistered = true
                             }
                         }
@@ -137,19 +137,18 @@ struct RegistrationView: View {
                             .background(Color(red: 0.0, green: 0.13, blue: 0.27).opacity(0.9))
                             .cornerRadius(10)
                     }
-                    NavigationLink(destination: WelcomeScreen(), isActive: $isRegistered) {
+                    NavigationLink(
+                        destination: destinationView(for: selectedRole),
+                        isActive: $isRegistered
+                    ) {
                         EmptyView()
                     }
-                    
-                    
                     
                     NavigationLink(destination: LoginView()){
                         Text("Already have an Account? Log in")
                             .padding(.top, 10)
                             .foregroundColor(.white)
                     }
-                    
-                
                 }
                 .padding(.bottom, 130)
             }
@@ -167,9 +166,23 @@ struct RegistrationView: View {
         }
     }
     
+    @ViewBuilder
+    private func destinationView(for role: Role?) -> some View {
+        switch role {
+        case .doctor:
+            DoctorDashboard()
+        case .nurse:
+            NurseDashboard()
+        case .labTech:
+            LabTechDashboard()
+        case .patient:
+            PatientDashboard()
+        default:
+            WelcomeScreen()
+        }
+    }
+    
 }
-
-
 
 #Preview {
     RegistrationView()

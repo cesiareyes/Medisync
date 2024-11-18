@@ -1,10 +1,12 @@
 import SwiftUI
 import FirebaseAuth
+import FirebaseFirestore
 
 @MainActor
 final class LoginViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
+    @Published var role: Role? = nil
     
     func login(completion: @escaping (Bool) -> Void) {
         guard !email.isEmpty, !password.isEmpty else {
@@ -15,11 +17,30 @@ final class LoginViewModel: ObservableObject {
         Task {
             do {
                 let user = try await Auth.auth().signIn(withEmail: email, password: password)
-                print("Success")
-                print(user)
-                completion(true)
+                print("Login successful.")
+                
+                let db = Firestore.firestore()
+                let userRef = db.collection("users").document(user.user.uid)
+                let snapshot = try await userRef.getDocument()
+                
+                if let data = snapshot.data() {
+                    if let roleString = data["role"] as? String {
+                        if let userRole = Role(rawValue: roleString) {
+                            self.role = userRole
+                            completion(true)
+                        } else {
+                            completion(false)
+                        }
+                    } else {
+                        completion(false)
+                    }
+                } else {
+                    print("No user document found for UID: \(user.user.uid)")
+                    completion(false)
+                }
             } catch {
                 print("Error: \(error)")
+                completion(false)
             }
         }
     }
@@ -28,6 +49,7 @@ final class LoginViewModel: ObservableObject {
 struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
     @State private var isLoggedIn = false
+    
     @State private var defaultHeight: CGFloat = 50
     @State private var defaultWidth: CGFloat = 400
     @State private var defaultCornerRadius: CGFloat = 4
@@ -88,7 +110,7 @@ struct LoginView: View {
                             .cornerRadius(10)
                             .font(.system(size: 18, weight: .semibold, design: .default)) // Use San Francisco
                     }
-                    NavigationLink(destination: ForgotPassword()) {
+                    NavigationLink(destination: RegistrationView()) {
                         Text("Not a user? Signup")
                             .padding(.top, 10)
                             .foregroundColor(.white)
@@ -96,7 +118,10 @@ struct LoginView: View {
                             .font(.system(size: 18, weight: .semibold, design: .default)) // Use San Francisco
                     }
                     
-                    NavigationLink(destination: WelcomeScreen(), isActive: $isLoggedIn) {
+                    NavigationLink(
+                        destination: destinationView(for: viewModel.role),
+                        isActive: $isLoggedIn
+                    ) {
                         EmptyView()
                     }
                 }
@@ -110,6 +135,22 @@ struct LoginView: View {
                     .edgesIgnoringSafeArea(.all)
                 )
             }
+        }
+    }
+    
+    @ViewBuilder
+    private func destinationView(for role: Role?) -> some View {
+        switch role {
+        case .doctor:
+            DoctorDashboard()
+        case .nurse:
+            NurseDashboard()
+        case .labTech:
+            LabTechDashboard()
+        case .patient:
+            PatientDashboard()
+        default:
+            WelcomeScreen()
         }
     }
     
