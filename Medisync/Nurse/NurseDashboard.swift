@@ -43,6 +43,26 @@ struct NurseDashboard: View {
                                 }
                             }
                         }
+                        Button(action: {
+                            showingUpdatePatientData.toggle()
+                        }) {
+                            HStack {
+                                Image(systemName: "plus.circle")
+                                Text("Add Patient")
+                                    .font(.headline)
+                            }
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color(red: 0.0, green: 0.13, blue: 0.27).opacity(0.9))
+                            .cornerRadius(15)
+                            .padding(.top, 20)
+                        }
+                        .padding()
+                        .sheet(isPresented: $showingUpdatePatientData) {
+                            AddPatientForm(viewModel: viewModel)
+                        }
+                        
                     } else if selectedTab == 1 {
                         AnalyticalDataView(viewModel: viewModel)
                     } else if selectedTab == 2 {
@@ -51,30 +71,11 @@ struct NurseDashboard: View {
                     
                     Spacer()
 
-                    // Button to navigate to UpdatePatientDataView
-                    Button(action: {
-                        showingUpdatePatientData.toggle()
-                    }) {
-                        HStack {
-                            Image(systemName: "plus.circle")
-                            Text("Add Patient")
-                                .font(.headline)
-                        }
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color(red: 0.0, green: 0.13, blue: 0.27).opacity(0.9))
-                        .cornerRadius(15)
-                        .padding(.top, 20)
-                    }
-                    .padding()
-                    .sheet(isPresented: $showingUpdatePatientData) {
-                        AddPatientForm(viewModel: viewModel)
-                    }
+                    
                     
                     // Tab Bar Navigation
                     HStack {
-                        NurseTabBarItem(icon: "person", label: "Patients", isSelected: selectedTab == 0)
+                        NurseTabBarItem(icon: "person", label: "Update Patients", isSelected: selectedTab == 0)
                             .onTapGesture { selectedTab = 0 }
                         Spacer()
                         NurseTabBarItem(icon: "chart.bar", label: "Analytical Data", isSelected: selectedTab == 1)
