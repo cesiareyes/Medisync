@@ -19,7 +19,7 @@ struct MessageDetailView: View {
             Spacer()
             
             Button("Reply") {
-                // Add UI elements for replying to the message
+                //reply logic will be placed here
             }
             .navigationTitle("Message Details")
         }

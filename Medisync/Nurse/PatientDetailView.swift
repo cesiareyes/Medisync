@@ -11,24 +11,51 @@ struct PatientDetailView: View {
     var patient: Patient
     
     var body: some View {
-        VStack {
-            Text("Patient Details for \(patient.name)")
-            Text("Age: \(patient.age)")
-            Text("Blood Type: \(patient.bloodType)")
-            Text("Height: \(patient.height)")
-            Text("Weight: \(patient.weight)")
-            // Add more patient details here
+        ZStack {
+            LinearGradient(
+                gradient: Gradient(colors: [.white, .purple]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .edgesIgnoringSafeArea(.all)
             
-            Spacer()
-            
-            Button("Update Patient Data") {
-                // Add UI elements for updating patient data
+            VStack(alignment: .leading, spacing: 16) {
+                Text("Patient Details for \(patient.name)")
+                    .font(.title2)
+                    .bold()
                 
+                Text("Age: \(patient.age)")
+                Text("Blood Type: \(patient.bloodType)")
+                Text("Height: \(patient.height) in")
+                Text("Weight: \(patient.weight) lbs")
+                
+                Text("Symptoms:")
+                    .font(.headline)
+                Text(patient.symptoms.map {
+                    $0.symptom.rawValue
+                }.joined(separator: ", "))
+                .foregroundColor(.black)
+                
+                Text("Medications:")
+                    .font(.headline)
+                Text(patient.medications)
+                
+                Text("Immunization History:")
+                    .font(.headline)
+                Text(patient.immunizations)
+                
+                Spacer()
             }
-            .navigationTitle("Patient Details")
+            .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.clear)
         }
     }
 }
 
 
-        
+
+
+
+
+

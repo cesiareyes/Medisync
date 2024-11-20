@@ -15,7 +15,6 @@
 		885E1E9A2CECEA9F006A584B /* MessageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885E1E992CECEA96006A584B /* MessageDetailView.swift */; };
 		88882BF22CECEF8E00AADF55 /* NurseDashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88882BF12CECEF8300AADF55 /* NurseDashboardViewModel.swift */; };
 		88882BF42CECF00000AADF55 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88882BF32CECEFFA00AADF55 /* Models.swift */; };
-		88882BF62CECF1EE00AADF55 /* DashboardTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88882BF52CECF1E200AADF55 /* DashboardTabItem.swift */; };
 		890B04002CD4359600B61BEC /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B03FF2CD4359600B61BEC /* AuthenticationManager.swift */; };
 		8926FC6E2CDA815C0049DBF1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 8926FC6D2CDA815C0049DBF1 /* FirebaseFirestore */; };
 		8926FC722CDABA3D0049DBF1 /* PatientDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8926FC712CDABA3D0049DBF1 /* PatientDashboard.swift */; };
@@ -35,6 +34,7 @@
 		89EB34582CDD767900D6C524 /* MedicalRecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB34572CDD767900D6C524 /* MedicalRecordsView.swift */; };
 		89EB345A2CDD76E800D6C524 /* SymptomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB34592CDD76E800D6C524 /* SymptomsView.swift */; };
 		89EB345C2CDD772700D6C524 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB345B2CDD772700D6C524 /* CheckInView.swift */; };
+		89F246F42CED496E00DD53FE /* AddPatientForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F246F32CED496E00DD53FE /* AddPatientForm.swift */; };
 		89FBCA602CAB0B0A00BBDE97 /* MedisyncApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FBCA5F2CAB0B0A00BBDE97 /* MedisyncApp.swift */; };
 		89FBCA622CAB0B0A00BBDE97 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FBCA612CAB0B0A00BBDE97 /* ContentView.swift */; };
 		89FBCA642CAB0B0D00BBDE97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89FBCA632CAB0B0D00BBDE97 /* Assets.xcassets */; };
@@ -50,7 +50,6 @@
 		885E1E992CECEA96006A584B /* MessageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailView.swift; sourceTree = "<group>"; };
 		88882BF12CECEF8300AADF55 /* NurseDashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NurseDashboardViewModel.swift; sourceTree = "<group>"; };
 		88882BF32CECEFFA00AADF55 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
-		88882BF52CECF1E200AADF55 /* DashboardTabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabItem.swift; sourceTree = "<group>"; };
 		890B03FF2CD4359600B61BEC /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		8926FC712CDABA3D0049DBF1 /* PatientDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientDashboard.swift; sourceTree = "<group>"; };
 		8926FC742CDABC5D0049DBF1 /* AppointmentDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentDetail.swift; sourceTree = "<group>"; };
@@ -67,6 +66,7 @@
 		89EB34572CDD767900D6C524 /* MedicalRecordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecordsView.swift; sourceTree = "<group>"; };
 		89EB34592CDD76E800D6C524 /* SymptomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomsView.swift; sourceTree = "<group>"; };
 		89EB345B2CDD772700D6C524 /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
+		89F246F32CED496E00DD53FE /* AddPatientForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPatientForm.swift; sourceTree = "<group>"; };
 		89FBCA5C2CAB0B0A00BBDE97 /* Medisync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Medisync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89FBCA5F2CAB0B0A00BBDE97 /* MedisyncApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedisyncApp.swift; sourceTree = "<group>"; };
 		89FBCA612CAB0B0A00BBDE97 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -117,7 +117,6 @@
 		8931AF592CEBAC4000370BC1 /* Nurse */ = {
 			isa = PBXGroup;
 			children = (
-				88882BF52CECF1E200AADF55 /* DashboardTabItem.swift */,
 				88882BF32CECEFFA00AADF55 /* Models.swift */,
 				88882BF12CECEF8300AADF55 /* NurseDashboardViewModel.swift */,
 				885E1E992CECEA96006A584B /* MessageDetailView.swift */,
@@ -125,6 +124,7 @@
 				884283052CECCAC20026C334 /* MessagesView.swift */,
 				884283032CECC9DF0026C334 /* AnalyticalDataView.swift */,
 				884283012CECC7680026C334 /* UpdatePatientDataView.swift */,
+				89F246F32CED496E00DD53FE /* AddPatientForm.swift */,
 				8931AF572CEBABFB00370BC1 /* NurseDashboard.swift */,
 			);
 			path = Nurse;
@@ -276,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				885E1E9A2CECEA9F006A584B /* MessageDetailView.swift in Sources */,
+				89F246F42CED496E00DD53FE /* AddPatientForm.swift in Sources */,
 				88882BF42CECF00000AADF55 /* Models.swift in Sources */,
 				89EB34542CDD75E500D6C524 /* PatientModels.swift in Sources */,
 				8968D9682CD400F70067ACA3 /* LoginView.swift in Sources */,
@@ -288,7 +289,6 @@
 				89EB345A2CDD76E800D6C524 /* SymptomsView.swift in Sources */,
 				890B04002CD4359600B61BEC /* AuthenticationManager.swift in Sources */,
 				89D072A62CACBFC800DFE687 /* WelcomeScreen.swift in Sources */,
-				88882BF62CECF1EE00AADF55 /* DashboardTabItem.swift in Sources */,
 				884283022CECC7720026C334 /* UpdatePatientDataView.swift in Sources */,
 				884283062CECCAC80026C334 /* MessagesView.swift in Sources */,
 				89EB34582CDD767900D6C524 /* MedicalRecordsView.swift in Sources */,

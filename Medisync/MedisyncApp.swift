@@ -13,7 +13,7 @@ import FirebaseFirestore
 struct MedisyncApp: App {
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-   
+    
     @State private var showSignInView: Bool = false
     
     var body: some Scene {
@@ -40,6 +40,18 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
         FirebaseApp.configure()
+        
+        let settings = Firestore.firestore().settings
+        settings.isPersistenceEnabled = true
+        Firestore.firestore().settings = settings
+        
+        Firestore.firestore().enableNetwork { error in
+            if let error = error {
+                print("Error enabling network: \(error.localizedDescription)")
+            } else {
+                print("Network enabled successfully")
+            }
+        }
         
         return true
     }

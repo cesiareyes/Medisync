@@ -30,11 +30,12 @@ struct MedicalRecord: Identifiable {
     let date: Date
 }
 
-enum Symptom: String, CaseIterable {
+enum Symptom: String, CaseIterable, Hashable {
     case fever, cough, headache, fatigue, nausea, dizziness, chestPain
+    case other
 }
 
-struct SymptomDetail {
+struct SymptomDetail: Hashable {
     var symptom: Symptom
     var duration: String
     var description: String
