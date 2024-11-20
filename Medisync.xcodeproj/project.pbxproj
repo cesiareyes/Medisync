@@ -30,6 +30,7 @@
 		89ADC2FB2CEE339900B9278A /* LabTechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ADC2FA2CEE339900B9278A /* LabTechModel.swift */; };
 		89ADC2FD2CEE33C100B9278A /* LabTechView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ADC2FC2CEE33C100B9278A /* LabTechView.swift */; };
 		89ADC2FF2CEE33F900B9278A /* LabInbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ADC2FE2CEE33F900B9278A /* LabInbox.swift */; };
+		89CE6A862CEE462500898838 /* DoctorDashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CE6A852CEE462500898838 /* DoctorDashboardViewModel.swift */; };
 		89D072A42CAC9FF500DFE687 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D072A32CAC9FF500DFE687 /* RegistrationView.swift */; };
 		89D072A62CACBFC800DFE687 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D072A52CACBFC800DFE687 /* WelcomeScreen.swift */; };
 		89EB34542CDD75E500D6C524 /* PatientModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB34532CDD75E500D6C524 /* PatientModels.swift */; };
@@ -65,6 +66,7 @@
 		89ADC2FA2CEE339900B9278A /* LabTechModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabTechModel.swift; sourceTree = "<group>"; };
 		89ADC2FC2CEE33C100B9278A /* LabTechView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabTechView.swift; sourceTree = "<group>"; };
 		89ADC2FE2CEE33F900B9278A /* LabInbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabInbox.swift; sourceTree = "<group>"; };
+		89CE6A852CEE462500898838 /* DoctorDashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorDashboardViewModel.swift; sourceTree = "<group>"; };
 		89D072A32CAC9FF500DFE687 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		89D072A52CACBFC800DFE687 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
 		89EB34532CDD75E500D6C524 /* PatientModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientModels.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				8931AF532CEBABD300370BC1 /* DoctorDashboard.swift */,
+				89CE6A852CEE462500898838 /* DoctorDashboardViewModel.swift */,
 			);
 			path = Doctor;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				890B04002CD4359600B61BEC /* AuthenticationManager.swift in Sources */,
 				89D072A62CACBFC800DFE687 /* WelcomeScreen.swift in Sources */,
 				884283022CECC7720026C334 /* UpdatePatientDataView.swift in Sources */,
+				89CE6A862CEE462500898838 /* DoctorDashboardViewModel.swift in Sources */,
 				884283062CECCAC80026C334 /* MessagesView.swift in Sources */,
 				89EB34582CDD767900D6C524 /* MedicalRecordsView.swift in Sources */,
 				89ADC2FB2CEE339900B9278A /* LabTechModel.swift in Sources */,

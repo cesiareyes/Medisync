@@ -92,7 +92,7 @@ struct NurseDashboard: View {
                 }
             }
             .onAppear {
-                viewModel.fetchPatients() // Fetch patients on dashboard load
+                viewModel.fetchPatients()
             }
         }
     }
