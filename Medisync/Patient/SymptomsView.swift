@@ -34,8 +34,7 @@ struct SymptomsView: View {
                 }
                 .pickerStyle(MenuPickerStyle())
                 .padding()
-                .cornerRadius(8)
-                .shadow(radius: 5)
+                .cornerRadius(10)
                 .accentColor(.black)
             }
             
@@ -47,11 +46,8 @@ struct SymptomsView: View {
 
                 TextField("Enter duration (e.g., 2 days, 1 week)", text: $symptomDuration)
                     .padding()
-                    .frame(width: 360, height: 60)
-                    .background(Color.white.opacity(0.5))
-                    .cornerRadius(8)
-                    .shadow(radius: 5)
-                    .keyboardType(.default)
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(10)
             }
             
             VStack(alignment: .leading) {
@@ -62,11 +58,8 @@ struct SymptomsView: View {
                 
                 TextField("Add a brief description", text: $symptomDescription)
                     .padding()
-                    .frame(width: 360, height: 60)
-                    .background(Color.white.opacity(0.5))
-                    .cornerRadius(8)
-                    .shadow(radius: 5)
-                    .keyboardType(.default)
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(10)
             }
             
             AddSymptomButton {

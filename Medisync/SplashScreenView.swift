@@ -34,9 +34,6 @@ struct SplashScreenView: View {
                                 self.rotationAngle = 360
                             }
                         }
-//                    Text("MediSync")
-//                        .font(.system(size: 36))
-//                        .foregroundColor(.black)
                 }
                 .scaleEffect(size)
                 .opacity(opacity)

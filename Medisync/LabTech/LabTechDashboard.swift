@@ -51,6 +51,7 @@ struct LabTechDashboard: View {
                 .padding(.bottom, 10)
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

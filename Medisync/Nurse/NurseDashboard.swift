@@ -95,6 +95,7 @@ struct NurseDashboard: View {
                 viewModel.fetchPatients()
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

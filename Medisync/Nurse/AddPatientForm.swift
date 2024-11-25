@@ -63,15 +63,13 @@ struct AddPatientForm: View {
                 
                 TextField("Medications", text: $newPatient.medications)
                     .padding()
-                    .background(Color.white.opacity(0.5))
-                    .cornerRadius(8)
-                    .shadow(radius: 5)
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(10)
                 
                 TextField("Immunization History", text: $newPatient.immunizations)
                     .padding()
-                    .background(Color.white.opacity(0.5))
-                    .cornerRadius(8)
-                    .shadow(radius: 5)
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(10)
                 
                 HStack {
                     Text("Select Symptom: ")
@@ -88,7 +86,6 @@ struct AddPatientForm: View {
                     .padding()
                     .background(Color.white.opacity(0.5))
                     .cornerRadius(8)
-                    .shadow(radius: 5)
                     .accentColor(.black)
                 }
 
@@ -102,7 +99,6 @@ struct AddPatientForm: View {
                         .padding()
                         .background(Color.white.opacity(0.5))
                         .cornerRadius(8)
-                        .shadow(radius: 5)
                         .keyboardType(.default)
                 }
                 

@@ -72,6 +72,7 @@ struct PatientDashboard: View {
                 .padding(.bottom, 10)
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

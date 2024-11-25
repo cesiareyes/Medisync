@@ -91,6 +91,7 @@ struct DoctorDashboard: View {
                 viewModel.fetchPatients() // Fetch patients on dashboard load
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

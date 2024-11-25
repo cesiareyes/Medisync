@@ -54,26 +54,28 @@ struct ContentView: View {
                                 .font(.headline)
                                 .foregroundColor(.white)
                                 .padding()
-                                .frame(width: 420, height: defaultHeight)
+                                .frame(width: 300, height: defaultHeight)
                                 .background(
                                     Color(
                                         red: 0.537,
                                         green: 0.318,
                                         blue: 0.627)
                                     .opacity(0.9))
+                                .cornerRadius(10)
                         }
                         NavigationLink(destination: LoginView()){
                             Text("LOGIN")
                                 .font(.headline)
                                 .foregroundColor(.white)
                                 .padding()
-                                .frame(width: 420, height: defaultHeight)
+                                .frame(width: 300, height: defaultHeight)
                                 .background(
                                     Color(
                                         red: 0.537,
                                         green: 0.318,
                                         blue: 0.627)
                                     .opacity(0.9))
+                                .cornerRadius(10)
                         }
                     }.padding(.bottom,50)
                     
