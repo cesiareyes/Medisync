@@ -39,8 +39,34 @@ final class AuthenticationManager {
         return AuthDataResultModel(user: authDataResult.user)
     }
     
-    func signOut() throws {
-        try Auth.auth().signOut()
+    func fetchUserName(completion: @escaping (String?) -> Void) {
+        guard let user = Auth.auth().currentUser else {
+            completion(nil)
+            return
+        }
+        
+        let db = Firestore.firestore()
+        let userRef = db.collection("users").document(user.uid)
+        
+        userRef.getDocument { snapshot, error in
+            if let error = error {
+                print("Error fetching user name: \(error)")
+                completion(nil)
+            } else if let data = snapshot?.data(), let name = data["name"] as? String {
+                completion(name)
+            } else {
+                completion(nil)
+            }
+        }
+    }
+    
+    func fetchEmail(completion: @escaping (String?) -> Void) {
+        guard let user = Auth.auth().currentUser else {
+            completion(nil)
+            return
+        }
+        
+        completion(user.email)
     }
     
 }

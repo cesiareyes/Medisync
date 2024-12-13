@@ -22,8 +22,14 @@
 		8931AF542CEBABD300370BC1 /* DoctorDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8931AF532CEBABD300370BC1 /* DoctorDashboard.swift */; };
 		8931AF562CEBABE500370BC1 /* LabTechDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8931AF552CEBABE500370BC1 /* LabTechDashboard.swift */; };
 		8931AF582CEBABFB00370BC1 /* NurseDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8931AF572CEBABFB00370BC1 /* NurseDashboard.swift */; };
+		8965C4652D0ADB1800C20B81 /* ReceiverPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8965C4642D0ADB1800C20B81 /* ReceiverPicker.swift */; };
+		8965C4672D0ADB2F00C20B81 /* SubjectPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8965C4662D0ADB2E00C20B81 /* SubjectPicker.swift */; };
+		8965C4692D0ADB4B00C20B81 /* MessagesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8965C4682D0ADB4B00C20B81 /* MessagesListView.swift */; };
+		8965C46B2D0ADB6B00C20B81 /* MessageInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8965C46A2D0ADB6B00C20B81 /* MessageInputView.swift */; };
 		8968D9662CD400A50067ACA3 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8968D9652CD400A50067ACA3 /* SplashScreenView.swift */; };
 		8968D9682CD400F70067ACA3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8968D9672CD400F70067ACA3 /* LoginView.swift */; };
+		8989A8AE2D0AA8BF008EB5B8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8989A8AD2D0AA8BE008EB5B8 /* Profile.swift */; };
+		8989A8B02D0AB1A0008EB5B8 /* ChatBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8989A8AF2D0AB1A0008EB5B8 /* ChatBubble.swift */; };
 		898B533C2CB03BB500749C8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 898B533B2CB03BB400749C8F /* GoogleService-Info.plist */; };
 		898B533F2CB03D9A00749C8F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 898B533E2CB03D9A00749C8F /* FirebaseAnalytics */; };
 		898B53422CB044E500749C8F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 898B53412CB044E500749C8F /* FirebaseAuth */; };
@@ -33,11 +39,17 @@
 		89CE6A862CEE462500898838 /* DoctorDashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CE6A852CEE462500898838 /* DoctorDashboardViewModel.swift */; };
 		89D072A42CAC9FF500DFE687 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D072A32CAC9FF500DFE687 /* RegistrationView.swift */; };
 		89D072A62CACBFC800DFE687 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D072A52CACBFC800DFE687 /* WelcomeScreen.swift */; };
+		89DB2DAF2D0BAEEC00C29453 /* ConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DB2DAE2D0BAEEB00C29453 /* ConversationView.swift */; };
+		89DB2DB32D0BF8FC00C29453 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DB2DB22D0BF8FC00C29453 /* ImagePicker.swift */; };
+		89DB2DB52D0BF97800C29453 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DB2DB42D0BF97800C29453 /* DocumentPicker.swift */; };
+		89DB2DB72D0C029100C29453 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 89DB2DB62D0C029100C29453 /* FirebaseStorage */; };
 		89EB34542CDD75E500D6C524 /* PatientModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB34532CDD75E500D6C524 /* PatientModels.swift */; };
 		89EB34562CDD763200D6C524 /* AppointmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB34552CDD763200D6C524 /* AppointmentsView.swift */; };
 		89EB34582CDD767900D6C524 /* MedicalRecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB34572CDD767900D6C524 /* MedicalRecordsView.swift */; };
 		89EB345A2CDD76E800D6C524 /* SymptomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB34592CDD76E800D6C524 /* SymptomsView.swift */; };
 		89EB345C2CDD772700D6C524 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB345B2CDD772700D6C524 /* CheckInView.swift */; };
+		89ED30552D08B8B30088453B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED30542D08B8B30088453B /* Message.swift */; };
+		89ED30572D08B9520088453B /* MessagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED30562D08B9520088453B /* MessagesViewModel.swift */; };
 		89F246F42CED496E00DD53FE /* AddPatientForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F246F32CED496E00DD53FE /* AddPatientForm.swift */; };
 		89FBCA602CAB0B0A00BBDE97 /* MedisyncApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FBCA5F2CAB0B0A00BBDE97 /* MedisyncApp.swift */; };
 		89FBCA622CAB0B0A00BBDE97 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FBCA612CAB0B0A00BBDE97 /* ContentView.swift */; };
@@ -60,8 +72,14 @@
 		8931AF532CEBABD300370BC1 /* DoctorDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorDashboard.swift; sourceTree = "<group>"; };
 		8931AF552CEBABE500370BC1 /* LabTechDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabTechDashboard.swift; sourceTree = "<group>"; };
 		8931AF572CEBABFB00370BC1 /* NurseDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NurseDashboard.swift; sourceTree = "<group>"; };
+		8965C4642D0ADB1800C20B81 /* ReceiverPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverPicker.swift; sourceTree = "<group>"; };
+		8965C4662D0ADB2E00C20B81 /* SubjectPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectPicker.swift; sourceTree = "<group>"; };
+		8965C4682D0ADB4B00C20B81 /* MessagesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesListView.swift; sourceTree = "<group>"; };
+		8965C46A2D0ADB6B00C20B81 /* MessageInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInputView.swift; sourceTree = "<group>"; };
 		8968D9652CD400A50067ACA3 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		8968D9672CD400F70067ACA3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		8989A8AD2D0AA8BE008EB5B8 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		8989A8AF2D0AB1A0008EB5B8 /* ChatBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubble.swift; sourceTree = "<group>"; };
 		898B533B2CB03BB400749C8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89ADC2FA2CEE339900B9278A /* LabTechModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabTechModel.swift; sourceTree = "<group>"; };
 		89ADC2FC2CEE33C100B9278A /* LabTechView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabTechView.swift; sourceTree = "<group>"; };
@@ -69,11 +87,16 @@
 		89CE6A852CEE462500898838 /* DoctorDashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorDashboardViewModel.swift; sourceTree = "<group>"; };
 		89D072A32CAC9FF500DFE687 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		89D072A52CACBFC800DFE687 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
+		89DB2DAE2D0BAEEB00C29453 /* ConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationView.swift; sourceTree = "<group>"; };
+		89DB2DB22D0BF8FC00C29453 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		89DB2DB42D0BF97800C29453 /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
 		89EB34532CDD75E500D6C524 /* PatientModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientModels.swift; sourceTree = "<group>"; };
 		89EB34552CDD763200D6C524 /* AppointmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsView.swift; sourceTree = "<group>"; };
 		89EB34572CDD767900D6C524 /* MedicalRecordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecordsView.swift; sourceTree = "<group>"; };
 		89EB34592CDD76E800D6C524 /* SymptomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomsView.swift; sourceTree = "<group>"; };
 		89EB345B2CDD772700D6C524 /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
+		89ED30542D08B8B30088453B /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		89ED30562D08B9520088453B /* MessagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewModel.swift; sourceTree = "<group>"; };
 		89F246F32CED496E00DD53FE /* AddPatientForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPatientForm.swift; sourceTree = "<group>"; };
 		89FBCA5C2CAB0B0A00BBDE97 /* Medisync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Medisync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89FBCA5F2CAB0B0A00BBDE97 /* MedisyncApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedisyncApp.swift; sourceTree = "<group>"; };
@@ -88,6 +111,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				898B533F2CB03D9A00749C8F /* FirebaseAnalytics in Frameworks */,
+				89DB2DB72D0C029100C29453 /* FirebaseStorage in Frameworks */,
 				898B53422CB044E500749C8F /* FirebaseAuth in Frameworks */,
 				8926FC6E2CDA815C0049DBF1 /* FirebaseFirestore in Frameworks */,
 			);
@@ -118,6 +142,8 @@
 				89EB34532CDD75E500D6C524 /* PatientModels.swift */,
 				8926FC742CDABC5D0049DBF1 /* AppointmentDetail.swift */,
 				89EB34572CDD767900D6C524 /* MedicalRecordsView.swift */,
+				89DB2DB42D0BF97800C29453 /* DocumentPicker.swift */,
+				89DB2DB22D0BF8FC00C29453 /* ImagePicker.swift */,
 			);
 			path = Patient;
 			sourceTree = "<group>";
@@ -127,9 +153,7 @@
 			children = (
 				88882BF32CECEFFA00AADF55 /* Models.swift */,
 				88882BF12CECEF8300AADF55 /* NurseDashboardViewModel.swift */,
-				885E1E992CECEA96006A584B /* MessageDetailView.swift */,
 				88059F232CECE6E100F71D79 /* PatientDetailView.swift */,
-				884283052CECCAC20026C334 /* MessagesView.swift */,
 				884283032CECC9DF0026C334 /* AnalyticalDataView.swift */,
 				884283012CECC7680026C334 /* UpdatePatientDataView.swift */,
 				89F246F32CED496E00DD53FE /* AddPatientForm.swift */,
@@ -165,6 +189,36 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		89ED305B2D08C0720088453B /* Messaging */ = {
+			isa = PBXGroup;
+			children = (
+				89ED30562D08B9520088453B /* MessagesViewModel.swift */,
+				8965C4642D0ADB1800C20B81 /* ReceiverPicker.swift */,
+				8965C4662D0ADB2E00C20B81 /* SubjectPicker.swift */,
+				8965C4682D0ADB4B00C20B81 /* MessagesListView.swift */,
+				89DB2DAE2D0BAEEB00C29453 /* ConversationView.swift */,
+				8965C46A2D0ADB6B00C20B81 /* MessageInputView.swift */,
+				884283052CECCAC20026C334 /* MessagesView.swift */,
+				885E1E992CECEA96006A584B /* MessageDetailView.swift */,
+				8989A8AF2D0AB1A0008EB5B8 /* ChatBubble.swift */,
+				89ED30542D08B8B30088453B /* Message.swift */,
+			);
+			path = Messaging;
+			sourceTree = "<group>";
+		};
+		89ED305C2D08C0AD0088453B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8989A8AD2D0AA8BE008EB5B8 /* Profile.swift */,
+				8931AF592CEBAC4000370BC1 /* Nurse */,
+				8931AF5B2CEBAC5E00370BC1 /* Doctor */,
+				8931AF5A2CEBAC5000370BC1 /* LabTech */,
+				8926FC732CDABA450049DBF1 /* Patient */,
+				89ED305B2D08C0720088453B /* Messaging */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		89FBCA532CAB0B0A00BBDE97 = {
 			isa = PBXGroup;
 			children = (
@@ -188,11 +242,8 @@
 				89FBCA5F2CAB0B0A00BBDE97 /* MedisyncApp.swift */,
 				890B03FC2CD433DD00B61BEC /* Authentication */,
 				8968D9652CD400A50067ACA3 /* SplashScreenView.swift */,
-				8926FC732CDABA450049DBF1 /* Patient */,
 				89D072A52CACBFC800DFE687 /* WelcomeScreen.swift */,
-				8931AF5B2CEBAC5E00370BC1 /* Doctor */,
-				8931AF5A2CEBAC5000370BC1 /* LabTech */,
-				8931AF592CEBAC4000370BC1 /* Nurse */,
+				89ED305C2D08C0AD0088453B /* Views */,
 				898B533B2CB03BB400749C8F /* GoogleService-Info.plist */,
 				89FBCA632CAB0B0D00BBDE97 /* Assets.xcassets */,
 				89FBCA652CAB0B0D00BBDE97 /* Preview Content */,
@@ -228,6 +279,7 @@
 				898B533E2CB03D9A00749C8F /* FirebaseAnalytics */,
 				898B53412CB044E500749C8F /* FirebaseAuth */,
 				8926FC6D2CDA815C0049DBF1 /* FirebaseFirestore */,
+				89DB2DB62D0C029100C29453 /* FirebaseStorage */,
 			);
 			productName = Medisync;
 			productReference = 89FBCA5C2CAB0B0A00BBDE97 /* Medisync.app */;
@@ -293,6 +345,9 @@
 				89EB34542CDD75E500D6C524 /* PatientModels.swift in Sources */,
 				8968D9682CD400F70067ACA3 /* LoginView.swift in Sources */,
 				884283042CECC9E90026C334 /* AnalyticalDataView.swift in Sources */,
+				89DB2DB52D0BF97800C29453 /* DocumentPicker.swift in Sources */,
+				8989A8B02D0AB1A0008EB5B8 /* ChatBubble.swift in Sources */,
+				8965C4652D0ADB1800C20B81 /* ReceiverPicker.swift in Sources */,
 				89EB345C2CDD772700D6C524 /* CheckInView.swift in Sources */,
 				8931AF542CEBABD300370BC1 /* DoctorDashboard.swift in Sources */,
 				88882BF22CECEF8E00AADF55 /* NurseDashboardViewModel.swift in Sources */,
@@ -302,19 +357,27 @@
 				89ADC2FF2CEE33F900B9278A /* LabInbox.swift in Sources */,
 				890B04002CD4359600B61BEC /* AuthenticationManager.swift in Sources */,
 				89D072A62CACBFC800DFE687 /* WelcomeScreen.swift in Sources */,
+				89DB2DAF2D0BAEEC00C29453 /* ConversationView.swift in Sources */,
 				884283022CECC7720026C334 /* UpdatePatientDataView.swift in Sources */,
+				8989A8AE2D0AA8BF008EB5B8 /* Profile.swift in Sources */,
 				89CE6A862CEE462500898838 /* DoctorDashboardViewModel.swift in Sources */,
 				884283062CECCAC80026C334 /* MessagesView.swift in Sources */,
 				89EB34582CDD767900D6C524 /* MedicalRecordsView.swift in Sources */,
 				89ADC2FB2CEE339900B9278A /* LabTechModel.swift in Sources */,
+				89ED30552D08B8B30088453B /* Message.swift in Sources */,
 				8931AF582CEBABFB00370BC1 /* NurseDashboard.swift in Sources */,
+				89ED30572D08B9520088453B /* MessagesViewModel.swift in Sources */,
 				8926FC722CDABA3D0049DBF1 /* PatientDashboard.swift in Sources */,
 				8931AF562CEBABE500370BC1 /* LabTechDashboard.swift in Sources */,
+				8965C4672D0ADB2F00C20B81 /* SubjectPicker.swift in Sources */,
 				89FBCA622CAB0B0A00BBDE97 /* ContentView.swift in Sources */,
+				8965C4692D0ADB4B00C20B81 /* MessagesListView.swift in Sources */,
 				89ADC2FD2CEE33C100B9278A /* LabTechView.swift in Sources */,
 				89FBCA602CAB0B0A00BBDE97 /* MedisyncApp.swift in Sources */,
+				8965C46B2D0ADB6B00C20B81 /* MessageInputView.swift in Sources */,
 				8926FC752CDABC5D0049DBF1 /* AppointmentDetail.swift in Sources */,
 				88059F242CECE6E900F71D79 /* PatientDetailView.swift in Sources */,
+				89DB2DB32D0BF8FC00C29453 /* ImagePicker.swift in Sources */,
 				8968D9662CD400A50067ACA3 /* SplashScreenView.swift in Sources */,
 				53019D012CDAD32A00AA4DCD /* ForgotPassword.swift in Sources */,
 			);
@@ -552,6 +615,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 898B533D2CB03D9A00749C8F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		89DB2DB62D0C029100C29453 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 898B533D2CB03D9A00749C8F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

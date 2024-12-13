@@ -11,7 +11,6 @@ import FirebaseAuth
 
 class DoctorDashboardViewModel: ObservableObject {
     @Published var patients: [Patient] = []
-    @Published var messages: [Message] = []
     @Published var analyticalData: [AnalyticalData] = []
     
     func fetchPatients() {
@@ -55,34 +54,6 @@ class DoctorDashboardViewModel: ObservableObject {
             print("Patients fetched: \(self.patients.count)")
         }
     }
-
-    
-    func fetchMessages() {
-        guard let nurseUID = try? AuthenticationManager.shared.getAuthenticatedUser().uid else {
-            print("No logged-in doctor")
-            return
-        }
-        
-        let db = Firestore.firestore()
-        let messagesRef = db.collection("doctors").document(nurseUID).collection("messages")
-        
-        messagesRef.getDocuments { snapshot, error in
-            if let error = error {
-                print("Error fetching messages: \(error)")
-                return
-            }
-            
-            self.messages = snapshot?.documents.compactMap { document in
-                let data = document.data()
-                return Message(
-                    id: UUID(uuidString: document.documentID) ?? UUID(),
-                    sender: data["sender"] as? String ?? "Unknown",
-                    subject: data["subject"] as? String ?? "No subject",
-                    content: data["content"] as? String ?? "No content"
-                )
-            } ?? []
-        }
-    }
     
     func fetchAnalyticalData() {
         guard let nurseUID = try? AuthenticationManager.shared.getAuthenticatedUser().uid else {
@@ -108,4 +79,5 @@ class DoctorDashboardViewModel: ObservableObject {
             } ?? []
         }
     }
+    
 }

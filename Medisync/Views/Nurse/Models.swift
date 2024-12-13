@@ -20,14 +20,6 @@ struct Patient: Identifiable {
     var dateOfBirth: Date = Date()
 }
 
-
-struct Message: Identifiable {
-    var id: UUID
-    var sender: String
-    var subject: String
-    var content: String
-}
-
 struct AnalyticalData: Identifiable {
     var id: UUID
     var description: String

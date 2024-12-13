@@ -2,8 +2,10 @@ import SwiftUI
 
 struct NurseDashboard: View {
     @StateObject private var viewModel = NurseDashboardViewModel()
+    @StateObject private var messagesViewModel = MessagesViewModel()
     @State private var selectedTab: Int = 0
     @State private var showingUpdatePatientData = false  // This will control the modal
+    @State private var userName: String = ""
     
     var body: some View {
         NavigationStack { // Use NavigationStack to handle navigation
@@ -16,16 +18,16 @@ struct NurseDashboard: View {
                 .edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: 0) {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Nurse Dashboard")
-                            .font(.system(size: 35, weight: .semibold, design: .default))
-                            .foregroundColor(.black)
-                            .padding(.top, 15)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding()
-                    }
-                    
                     if selectedTab == 0 {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("Welcome, \(userName)")
+                                .font(.system(size: 28, weight: .semibold, design: .default))
+                                .foregroundColor(.black)
+                                .padding(.top, 15)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding()
+                        }
+                        NurseWelcomeView()
                         // **Patient List View**
                         ScrollView {
                             if viewModel.patients.isEmpty {
@@ -64,9 +66,17 @@ struct NurseDashboard: View {
                         }
                         
                     } else if selectedTab == 1 {
+                        NurseWelcomeView()
                         AnalyticalDataView(viewModel: viewModel)
                     } else if selectedTab == 2 {
-                        MessagesView(viewModel: viewModel)
+                        NurseWelcomeView()
+                        MessagesView(
+                            messagesViewModel: messagesViewModel,
+                            availableUsers: messagesViewModel.availableUsers
+                        )
+
+                    } else if selectedTab == 3 {
+                        Profile()
                     }
                     
                     Spacer()
@@ -83,6 +93,10 @@ struct NurseDashboard: View {
                         Spacer()
                         NurseTabBarItem(icon: "message", label: "Messages", isSelected: selectedTab == 2)
                             .onTapGesture { selectedTab = 2 }
+                        Spacer()
+                        NurseTabBarItem(icon: "person.crop.circle", label: "Settings", isSelected:
+                            selectedTab == 3)
+                        .onTapGesture { selectedTab = 3}
                     }
                     .padding()
                     .background(Color.black.opacity(0.6))
@@ -93,9 +107,33 @@ struct NurseDashboard: View {
             }
             .onAppear {
                 viewModel.fetchPatients()
+                messagesViewModel.fetchMessages()
             }
         }
         .navigationBarBackButtonHidden(true)
+        .onAppear {
+            AuthenticationManager.shared.fetchUserName { name in
+                if let name = name {
+                    self.userName = name
+                } else {
+                    print("Could not retrieve user name.")
+                }
+            }
+        }
+    }
+}
+
+struct NurseWelcomeView: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+                    
+            Text("Nurse Dashboard")
+                .font(.system(size: 35, weight: .semibold, design: .default))
+                .foregroundColor(.black)
+                .padding(.top, 15)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding()
+        }
     }
 }
 

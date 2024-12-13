@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct Appointment: Identifiable {
     let id: String
     let doctorName: String
@@ -50,10 +51,20 @@ class PatientDashboardViewModel: ObservableObject {
     
     @Published var medicalRecords: [MedicalRecord] = []
     @Published var symptoms: [Symptom] = [.fever, .headache]
+    @Published var currentUserID: String?
 
     // Fetching and handling methods
     func fetchAppointments() { }
     func fetchMedicalRecords() { }
+    
+    func fetchCurrentUserID() {
+            do {
+                let authData = try AuthenticationManager.shared.getAuthenticatedUser()
+                self.currentUserID = authData.uid
+            } catch {
+                print("Error fetching current user ID: \(error.localizedDescription)")
+            }
+        }
     
     func logSymptom(symptom: SymptomDetail) {
         print("Logged Symptom: \(symptom.symptom.rawValue), Duration: \(symptom.duration), Description: \(symptom.description)")
