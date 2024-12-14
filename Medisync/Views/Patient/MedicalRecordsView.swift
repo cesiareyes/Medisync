@@ -25,7 +25,7 @@ struct MedicalRecordsView: View {
                 ForEach(viewModel.medicalRecords) { record in
                     MedicalRecordCard(record: record)
                 }
-                UploadRecordButton(viewModel: viewModel) // Pass the viewModel to the UploadRecordButton
+                UploadRecordButton(viewModel: viewModel)
             }
             .padding()
         }
@@ -49,6 +49,12 @@ struct MedicalRecordCard: View {
     }
 }
 
+/**
+ * A struct for handling file and photo uploads from user's device
+ * This code was adapted from a Youtube Video titled " 008 - Importing images, files, and contact cards into your app | SwiftUI" by scriptpapi, published on Feburary 19, 2023
+ * https://www.youtube.com/watch?v=CcRk6Xew-iY
+ */
+
 struct UploadRecordButton: View {
     @State private var actionSheetVisible = false
     @State private var pickerType: PickerType?
@@ -58,7 +64,7 @@ struct UploadRecordButton: View {
     @State private var selectedDocument: URL?
     @State private var selectedDocumentName: String?
     
-    @ObservedObject var viewModel: PatientDashboardViewModel // Access the viewModel here
+    @ObservedObject var viewModel: PatientDashboardViewModel
 
     var body: some View {
         VStack {

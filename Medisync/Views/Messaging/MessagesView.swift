@@ -21,6 +21,7 @@ struct MessagesView: View {
     var body: some View {
         VStack {
             if !isMessageFormVisible && selectedReceiver == nil{
+                // button that toggles form visibility
                 Button(action: {
                     isMessageFormVisible.toggle()
                 }) {
@@ -37,8 +38,10 @@ struct MessagesView: View {
                 .padding(.top, 20)
                 .padding(.bottom, 10)
             }
+            //show message form
             if isMessageFormVisible {
                 VStack {
+                    // button to go back and cancel
                     HStack {
                         Button(action: {
                             isMessageFormVisible = false
@@ -71,6 +74,7 @@ struct MessagesView: View {
                     }
                     Spacer()
                     
+                    // message input view for typing new message
                     MessageInputView(messageContent: $messageContent, sendMessage: {
                         guard let receiver = selectedReceiver else { return }
                         let sender = messagesViewModel.currentUserName
@@ -78,13 +82,14 @@ struct MessagesView: View {
                         let content = messageContent
                         
                         messagesViewModel.sendMessage(from: sender, to: receiver, subject: subject, content: content)
-                        // After sending, hide the form
+                        // after sending, hide the form
                         isMessageFormVisible = false
                         clearMessageForm()
                     })
                 }
                 .padding()
             } else {
+                //shows messages
                 if messagesViewModel.messages.isEmpty {
                     Text("No Messages")
                         .font(.headline)
@@ -94,9 +99,10 @@ struct MessagesView: View {
                         MessagesListView(messages: messagesViewModel.messages, currentUserName: messagesViewModel.currentUserName, selectedReceiver: $selectedReceiver)
                     } else {
                         VStack {
+                            // button to go back to messages list
                             HStack {
                                 Button(action: {
-                                    selectedReceiver = nil // Deselect the conversation
+                                    selectedReceiver = nil
                                 }) {
                                     HStack {
                                         Image(systemName: "arrow.left")
@@ -111,6 +117,8 @@ struct MessagesView: View {
                                 }
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             }
+                            
+                            // display conversation with selected user
                             ConversationView(
                                 messagesViewModel: messagesViewModel,
                                 messages: messagesViewModel.messages,
@@ -128,9 +136,10 @@ struct MessagesView: View {
         }
     }
     
+    // helper function to clear message form
     private func clearMessageForm() {
         messageContent = ""
-        selectedReceiver = nil  // Make sure to set it to nil
+        selectedReceiver = nil
         messageSubject = "General"
     }
 

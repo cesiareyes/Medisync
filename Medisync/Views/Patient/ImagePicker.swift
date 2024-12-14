@@ -5,6 +5,12 @@
 //  Created by Cesia Reyes on 12/13/24.
 //
 
+/**
+ * A struct that provides the ability to select an image from the user's device
+ * This code is from a Github Gist post from scriptpapi:
+ * https://gist.github.com/scriptpapi/01a35cda92066bddcf56cd17375e8679
+ */
+
 import Foundation
 import SwiftUI
 

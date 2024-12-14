@@ -1,14 +1,27 @@
+//
+//  NurseDashboard.swift
+//  Medisync
+//
+//  Created by Cesia Reyes on 11/7/24.
+//
+
+/**
+ * A custom tab bar implementation for the Doctor Dashboard using SwiftUI.
+ * This code was adapted from a tutorial on building a custom tab bar in SwiftUI like Android:
+ *https://medium.com/@appdevinsights/building-a-custom-tab-bar-in-swiftui-like-android-934a04dca359
+ */
+
 import SwiftUI
 
 struct NurseDashboard: View {
     @StateObject private var viewModel = NurseDashboardViewModel()
     @StateObject private var messagesViewModel = MessagesViewModel()
     @State private var selectedTab: Int = 0
-    @State private var showingUpdatePatientData = false  // This will control the modal
+    @State private var showingUpdatePatientData = false  
     @State private var userName: String = ""
     
     var body: some View {
-        NavigationStack { // Use NavigationStack to handle navigation
+        NavigationStack {
             ZStack {
                 LinearGradient(
                     gradient: Gradient(colors: [.white, .purple]),

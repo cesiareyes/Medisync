@@ -5,8 +5,16 @@
 //  Created by Cesia Reyes on 12/11/24.
 //
 
+/**
+ * A profile and settings view implementation allowing users to view and update account
+ * information using List with sections
+ * This code was adapted from an online tutorial : "How to build app Settings page with NavigationView, List, Section & NavigationLink in SwiftUI" , Posted on February 18, 2021 By Christopher Chee
+ * https://blog.techchee.com/build-app-settings-page-with-swiftui/
+ */
+
 import SwiftUI
 
+//custom row for settings list, display title and icon
 struct SettingRowView : View {
     var title : String
     var systemImageName : String
@@ -37,6 +45,7 @@ struct Profile: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding()
                 
+                // settings list with different sections
                 List {
                     Section(header: Text("Account")) {
                         NavigationLink(destination: AccountView()) {
@@ -59,6 +68,7 @@ struct Profile: View {
 
                     }
                     
+                    // logs out using a navigation link
                     Section(header: Text("Logout")) {
                         NavigationLink(destination: LoginView()) {
                             SettingRowView(title: "Logout",
@@ -181,6 +191,7 @@ struct AccountView: View {
                 Spacer()
             }
             .onAppear {
+                // fetch the user's name and email from Firestore when view appears
                 AuthenticationManager.shared.fetchUserName { name in
                     if let name = name {
                         self.userName = name

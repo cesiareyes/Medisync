@@ -5,6 +5,12 @@
 //  Created by Cesia Reyes on 11/5/24.
 //
 
+/**
+ * A custom tab bar implementation for the Doctor Dashboard using SwiftUI.
+ * This code was adapted from a tutorial on building a custom tab bar in SwiftUI like Android:
+ *https://medium.com/@appdevinsights/building-a-custom-tab-bar-in-swiftui-like-android-934a04dca359
+ */
+
 import SwiftUI
 
 struct PatientDashboard: View {

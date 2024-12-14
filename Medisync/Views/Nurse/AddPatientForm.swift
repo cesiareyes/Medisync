@@ -12,6 +12,7 @@ struct AddPatientForm: View {
     @ObservedObject var viewModel: NurseDashboardViewModel
     @Environment(\.dismiss) private var dismiss
     
+    // state to hold the new patients data
     @State private var newPatient = Patient(
         name: "",
         age: 0,
@@ -24,6 +25,7 @@ struct AddPatientForm: View {
         dateOfBirth: Date()
     )
 
+    // state to store symptom details from user
     @State private var symptomDuration: String = ""
     @State private var symptomDescription: String = ""
     @State private var selectedSymptom: Symptom? = nil
@@ -116,6 +118,7 @@ struct AddPatientForm: View {
                         .keyboardType(.default)
                 }
                 
+                // button to save new patient
                 Button(action: {
                     savePatient()
                 }) {
@@ -133,13 +136,14 @@ struct AddPatientForm: View {
         }
     }
     
-    // Save patient details to Firestore
+    // save patient details to Firestore
     private func savePatient() {
         guard let nurseUID = try? AuthenticationManager.shared.getAuthenticatedUser().uid else {
             print("No logged-in nurse")
             return
         }
         
+        //prepare patient data to be saved in firestore
         let patientData: [String: Any] = [
             "name": newPatient.name,
             "age": calculateAge(from: newPatient.dateOfBirth),
@@ -158,6 +162,7 @@ struct AddPatientForm: View {
         let db = Firestore.firestore()
         let nurseRef = db.collection("nurses").document(nurseUID)
         
+        // add new patient to Firestore collection
         nurseRef.collection("patients").addDocument(data: patientData) { error in
             if let error = error {
                 print("Error saving patient: \(error)")
@@ -170,12 +175,14 @@ struct AddPatientForm: View {
         }
     }
     
+    // calculate age of patient based on dob
     private func calculateAge(from birthDate: Date) -> Int {
         let calendar = Calendar.current
         let ageComponents = calendar.dateComponents([.year], from: birthDate, to: Date())
         return ageComponents.year ?? 0
     }
     
+    //reset form after saving patient
     private func resetForm() {
         newPatient = Patient(name: "", age: 0, bloodType: "", height: nil, weight: nil, symptoms: [], medications: "", immunizations: "")
     }

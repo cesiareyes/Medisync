@@ -24,7 +24,7 @@ struct ConversationView: View {
             }
             .padding()
             
-            // Display conversation messages for the selected receiver
+            // display conversation messages for the selected receiver
             ScrollView {
                 ForEach(filteredMessages(messages: messages), id: \.id) { message in
                     ChatBubble(message: message, isSentByCurrentUser: message.sender == currentUserName)
@@ -32,22 +32,22 @@ struct ConversationView: View {
             }
             .padding()
             
-            // Message input field
+            // message input field
             MessageInputView(
-                messageContent: $messageContent,  // Only bind messageContent
+                messageContent: $messageContent,  // only bind messageContent
                 sendMessage: {
                     let sender = currentUserName
                     let receiver = selectedReceiver
                     let content = messageContent
-                    let subject = "General" // Use a default subject
-                    // Call sendMessage with the default subject
+                    let subject = "General"
+                    // call sendMessage with the default subject
                     messagesViewModel.sendMessage(from: sender, to: receiver, subject: subject, content: content)
                 }
             )
         }
     }
     
-    // Filter messages by the selected receiver
+    // filter messages by the selected receiver
     private func filteredMessages(messages: [Message]) -> [Message] {
         return messages.filter {
             ($0.sender == selectedReceiver && $0.receiver == currentUserName) ||

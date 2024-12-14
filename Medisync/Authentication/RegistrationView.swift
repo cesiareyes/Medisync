@@ -17,6 +17,16 @@ enum Role: String, CaseIterable {
     case patient
 }
 
+/**
+ * A class for handling user registration, including storing user data in Firestore and Firebase Authentication.
+ * This code was adapted from Two Youtube videos titled
+ * "iOS Firebase Authentication: Sign In With Email & Password Tutorial (1/2) | Firebase Bootcamp #3"
+ * "iOS Firebase Authentication: Sign In With Email & Password Tutorial (1/2) | Firebase Bootcamp #3"
+ * by Swiftful Thinking, published on March 15, 2023
+ * https://www.youtube.com/watch?v=4FAuU5Ev-5Y
+ * https://www.youtube.com/watch?v=jlC1yjVTMtA&t=138s
+ */
+
 @MainActor
 final class RegistrationViewModel: ObservableObject {
     @Published var email: String = ""

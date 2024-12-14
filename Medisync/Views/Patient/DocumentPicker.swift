@@ -5,6 +5,12 @@
 //  Created by Cesia Reyes on 12/13/24.
 //
 
+/**
+ * A struct that provides the abililty to select a document from the user's device
+ * This code is from a Github Gist post:
+ * https://gist.github.com/scriptpapi/d4d2647aedd761831eeaf1450c299887
+ */
+
 import Foundation
 import SwiftUI
 import UIKit

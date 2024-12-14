@@ -13,7 +13,7 @@ struct MessageInputView: View {
     
     var body: some View {
         HStack {
-            // Message content input
+            // message content input
             TextField("Type your message", text: $messageContent)
                 .padding()
                 .background(Color.white)

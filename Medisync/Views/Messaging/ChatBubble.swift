@@ -14,7 +14,7 @@ struct ChatBubble: View {
     var body: some View {
         HStack {
             if isSentByCurrentUser {
-                Spacer() // Push bubble to the right
+                Spacer()
             }
             
             VStack(alignment: .leading, spacing: 4) {
@@ -33,7 +33,7 @@ struct ChatBubble: View {
             }
             
             if !isSentByCurrentUser {
-                Spacer() // Push bubble to the left
+                Spacer()
             }
         }
         .frame(maxWidth: .infinity, alignment: isSentByCurrentUser ? .trailing : .leading)
@@ -42,21 +42,8 @@ struct ChatBubble: View {
     
     private func formattedTimestamp(_ timestamp: Date) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "hh:mm a" // Change to your preferred format
+        formatter.dateFormat = "hh:mm a"
         return formatter.string(from: timestamp)
     }
 }
 
-#Preview {
-    ChatBubble(
-            message: Message(
-                id: "123",
-                sender: "John Doe",
-                receiver: "Jane Smith",
-                content: "Hello, this is a test message.",
-                subject: "Test",
-                timestamp: Date()
-            ),
-            isSentByCurrentUser: true // or false depending on what you want to preview
-        )
-}

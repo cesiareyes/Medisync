@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MessageDetailView: View {
-    var message: Message // Accept message as a parameter
+    var message: Message 
 
     var body: some View {
         VStack {

@@ -2,6 +2,16 @@ import SwiftUI
 import FirebaseAuth
 import FirebaseFirestore
 
+/**
+ * A class for handling user login, including email/password authentication and fetching the user's role from Firestore.
+ * This code was adapted from Two Youtube videos titled
+ * "iOS Firebase Authentication: Sign In With Email & Password Tutorial (1/2) | Firebase Bootcamp #3"
+ * "iOS Firebase Authentication: Sign In With Email & Password Tutorial (1/2) | Firebase Bootcamp #3"
+ * by Swiftful Thinking, published on March 15, 2023
+ * https://www.youtube.com/watch?v=4FAuU5Ev-5Y
+ * https://www.youtube.com/watch?v=jlC1yjVTMtA&t=138s
+ */
+
 @MainActor
 final class LoginViewModel: ObservableObject {
     @Published var email: String = ""

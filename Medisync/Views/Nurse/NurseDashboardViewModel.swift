@@ -9,11 +9,13 @@ import Foundation
 import FirebaseFirestore
 import FirebaseAuth
 
+// model manages the data displayed on nurse dashboard
 class NurseDashboardViewModel: ObservableObject {
     @Published var patients: [Patient] = []
     @Published var analyticalData: [AnalyticalData] = []
     @Published var messages: [Message] = []
     
+    //function to fetch list of patients from Firestore
     func fetchPatients() {
         guard let nurseUID = try? AuthenticationManager.shared.getAuthenticatedUser().uid else {
             print("No logged-in nurse")
@@ -23,14 +25,18 @@ class NurseDashboardViewModel: ObservableObject {
         let db = Firestore.firestore()
         let patientsRef = db.collection("nurses").document(nurseUID).collection("patients")
 
+        //fetch document from patients collection
         patientsRef.getDocuments { snapshot, error in
             if let error = error {
                 print("Error fetching patients: \(error)")
                 return
             }
 
+            // process fetched documents and map them into patient objects
             self.patients = snapshot?.documents.compactMap { document in
                 let data = document.data()
+                
+                //return a patient object populated with the data from Firestore
                 return Patient(
                     id: document.documentID,
                     name: data["name"] as? String ?? "",

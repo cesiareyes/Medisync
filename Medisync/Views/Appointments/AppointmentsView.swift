@@ -6,7 +6,7 @@ struct AppointmentsView: View {
 
     var body: some View {
         VStack {
-            // Button to show the Add Appointment form
+            // button to show the Add Appointment form
             Button(action: {
                 isAddAppointmentPresented.toggle()
             }) {
@@ -19,7 +19,7 @@ struct AppointmentsView: View {
             }
             .padding()
 
-            // List of existing appointments
+            // list of existing appointments
             ScrollView {
                 VStack(spacing: 15) {
                     ForEach(viewModel.appointments) { appointment in
@@ -28,7 +28,7 @@ struct AppointmentsView: View {
                 }
                 .padding()
             }
-            // Show the add appointment modal when the button is tapped
+            // show the add appointment modal when the button is tapped
             .sheet(isPresented: $isAddAppointmentPresented) {
                 AddAppointmentView(isPresented: $isAddAppointmentPresented, viewModel: viewModel, userId: viewModel.currentUserID ?? "", doctorsList: viewModel.doctorsList)
             }
@@ -37,7 +37,7 @@ struct AppointmentsView: View {
 }
 
 
-
+// view to display individual appointment in a card
 struct AppointmentCard: View {
     @ObservedObject var viewModel: PatientDashboardViewModel
     let appointment: Appointment
@@ -46,9 +46,11 @@ struct AppointmentCard: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
+                // display doctor name
                 Text(appointment.doctorName)
                     .font(.title2).bold()
                     .foregroundColor(.white)
+                // display appointment status with appropriate color
                 Text("\(appointment.date, style: .date), \(appointment.time, style: .time)")
                     .foregroundColor(.white.opacity(0.7))
                 Text(appointment.status.rawValue.capitalized)
@@ -63,6 +65,7 @@ struct AppointmentCard: View {
         .padding()
         .background(Color.black.opacity(0.2))
         .cornerRadius(15)
+        //show appointment detail view on tap
         .onTapGesture {
             isDetailPresented.toggle()
         }
@@ -71,6 +74,7 @@ struct AppointmentCard: View {
         }
     }
 
+    // return a color based on appointment status
     private func statusColor(for status: AppointmentStatus) -> Color {
         switch status {
         case .scheduled: return .blue
@@ -80,6 +84,7 @@ struct AppointmentCard: View {
     }
 }
 
+// view to create a new appointment
 struct AddAppointmentView: View {
     @Binding var isPresented: Bool
     @ObservedObject var viewModel: PatientDashboardViewModel
@@ -143,6 +148,7 @@ struct AddAppointmentView: View {
     }
 }
 
+// view to display detailed information about an appointment
 struct AppointmentDetailView: View {
     @ObservedObject var viewModel: PatientDashboardViewModel
     let appointment: Appointment
@@ -160,7 +166,7 @@ struct AppointmentDetailView: View {
     var body: some View {
         NavigationView {
             Form {
-                // Appointment details
+                // appointment details
                 Section(header: Text("Appointment Details")) {
                     Text("Doctor: \(appointment.doctorName)")
                     Text("Date: \(appointment.date, style: .date)")
@@ -168,10 +174,10 @@ struct AppointmentDetailView: View {
                     Text("Status: \(appointment.status.rawValue.capitalized)")
                 }
 
-                // Option to cancel the appointment
+                // option to cancel the appointment
                 Section {
                     Button(action: {
-                        // Confirm cancellation
+                        // confirm cancellation
                         showConfirmation.toggle()
                     }) {
                         Text("Cancel Appointment")
@@ -193,7 +199,7 @@ struct AppointmentDetailView: View {
                     }
                 }
 
-                // Option to reschedule the appointment
+                // option to reschedule the appointment
                 Section(header: Text("Reschedule Appointment")) {
                     DatePicker("Choose a new date", selection: $selectedDate, displayedComponents: .date)
                         .datePickerStyle(GraphicalDatePickerStyle())
@@ -214,7 +220,7 @@ struct AppointmentDetailView: View {
             }
             .navigationBarTitle("Appointment Details", displayMode: .inline)
             .navigationBarItems(trailing: Button("Close") {
-                // Dismiss the modal
+                // dismiss the modal
                 self.$showConfirmation.wrappedValue = false
             })
         }

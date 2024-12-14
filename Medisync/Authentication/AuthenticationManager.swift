@@ -5,6 +5,16 @@
 //  Created by Cesia Reyes on 10/31/24.
 //
 
+/**
+ * A class that manages user authentication, including user creation and fetching user data
+ * This code was adapted from Two Youtube videos titled
+ * "iOS Firebase Authentication: Sign In With Email & Password Tutorial (1/2) | Firebase Bootcamp #3"
+ * "iOS Firebase Authentication: Sign In With Email & Password Tutorial (1/2) | Firebase Bootcamp #3"
+ * by Swiftful Thinking, published on March 15, 2023
+ * https://www.youtube.com/watch?v=4FAuU5Ev-5Y
+ * https://www.youtube.com/watch?v=jlC1yjVTMtA&t=138s
+ */
+
 import Foundation
 import FirebaseAuth
 import FirebaseFirestore
@@ -22,17 +32,7 @@ struct AuthDataResultModel {
 final class AuthenticationManager {
     let db = Firestore.firestore()
     static let shared = AuthenticationManager()
-    
-    init() {
-        enableOfflinePersistence()
-    }
-       
-    private func enableOfflinePersistence() {
-        let settings = FirestoreSettings()
-        settings.isPersistenceEnabled = true
-        db.settings = settings
-    }
-    
+
     func getAuthenticatedUser() throws -> AuthDataResultModel {
         guard let user = Auth.auth().currentUser else{
             throw URLError(.badServerResponse)

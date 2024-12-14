@@ -14,15 +14,15 @@ struct MessagesListView: View {
 
     var body: some View {
         VStack {
-            // Group messages by the receiver
+            // group messages by the receiver
             ForEach(Array(groupMessagesByReceiver(messages: messages).keys), id: \.self) { receiver in
                 let messagesForReceiver = groupMessagesByReceiver(messages: messages)[receiver] ?? []
                 
                 Button(action: {
-                    selectedReceiver = receiver  // Select the conversation
+                    selectedReceiver = receiver  // select the conversation
                 }) {
                     HStack {
-                        Text(receiver) // Display the receiver name as conversation title
+                        Text(receiver) // display the receiver name as conversation title
                             .font(.headline)
                         Spacer()
                         Text("\(messagesForReceiver.count) messages")
@@ -39,15 +39,14 @@ struct MessagesListView: View {
         .padding()
     }
 
-    // Group messages by receiver (ignores current user)
     private func groupMessagesByReceiver(messages: [Message]) -> [String: [Message]] {
         var groupedMessages = [String: [Message]]()
         
         for message in messages {
-            // Get the other person in the conversation
+            // get the other person in the conversation
             let receiver = message.receiver == currentUserName ? message.sender : message.receiver
             
-            // Add the message to the correct group (receiver)
+            // add the message to the correct group (receiver)
             if groupedMessages[receiver] == nil {
                 groupedMessages[receiver] = []
             }

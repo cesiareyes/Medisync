@@ -17,34 +17,33 @@ struct User: Codable {
 
 class MessagesViewModel: ObservableObject {
     @Published var messages: [Message] = []
-    @Published var availableUsers: [User] = [] // Store available users to select from
+    @Published var availableUsers: [User] = []
     @Published var currentUserName: String = ""
     @Published var selectedReceiver: String? = nil
     private var messageListener: ListenerRegistration?
     
     private let db = Firestore.firestore()
 
-    // Fetch Nurse, Doctor, and LabTech users
     func fetchUsers() {
         Task {
             do {
-                // Fetch users where the role is either "nurse", "doctor" or "labTech"
+                // fetch users where the role is either "nurse", "doctor" or "labTech"
                 let snapshot = try await db.collection("users")
                     .whereField("role", in: ["doctor", "nurse", "labTech"])
                     .getDocuments()
                 
-                // Process the fetched documents
+                // process the fetched documents
                 let users = snapshot.documents.compactMap { document in
                     let data = document.data()
                     let uid = document.documentID // Document ID is the UID
                     let name = data["name"] as? String ?? "Unknown"
                     let role = data["role"] as? String ?? "Unknown"
                     
-                    // Create User model
+                    // create user model
                     return User(uid: uid, name: name, role: role)
                 }
                 
-                // Update the availableUsers array on the main thread
+                // update the availableUsers array on the main thread
                 DispatchQueue.main.async {
                     self.availableUsers = users
                     print("Available Users: \(self.availableUsers)")
@@ -56,9 +55,9 @@ class MessagesViewModel: ObservableObject {
         }
     }
     
-    // Fetch messages for the logged-in user    
+    // fetch messages for the logged-in user
     func fetchMessages() {
-        // Remove the previous listener to avoid multiple listeners
+        // remove the previous listener to avoid multiple listeners
         messageListener?.remove()
         
         guard let currentUserUID = try? AuthenticationManager.shared.getAuthenticatedUser().uid else {
@@ -115,37 +114,37 @@ class MessagesViewModel: ObservableObject {
 
 
     
-    // Send message
+    // send message
     func sendMessage(from sender: String, to receiver: String, subject: String, content: String) {
         guard !sender.isEmpty, !receiver.isEmpty else {
             print("Sender or receiver cannot be empty")
             return
         }
         
-        // Get the current authenticated user's UID
+        // get the current authenticated user's UID
         guard let senderUID = FirebaseAuth.Auth.auth().currentUser?.uid else {
             print("Sender UID not found")
             return
         }
         
-        // Ensure that the receiver's UID is fetched correctly from availableUsers list
+        // ensure that the receiver's UID is fetched correctly from availableUsers list
         guard let receiverUID = availableUsers.first(where: { $0.name == receiver })?.uid else {
             print("Receiver UID not found for receiver: \(receiver)")
             return
         }
 
-        // Prepare the message data, including sender and receiver UIDs
+        // prepare the message data, including sender and receiver UIDs
         let messageData: [String: Any] = [
-            "sender": sender,  // Use the senderName retrieved from FirebaseAuth
+            "sender": sender,
             "receiver": receiver,
             "content": content,
             "subject": subject,
             "timestamp": FieldValue.serverTimestamp(),
             "senderUID": senderUID,
-            "receiverUID": receiverUID // Include receiver UID
+            "receiverUID": receiverUID
         ]
         
-        // Add the message to Firestore
+        // add the message to Firestore
         db.collection("messages").addDocument(data: messageData) { error in
             if let error = error {
                 print("Error sending message: \(error.localizedDescription)")
