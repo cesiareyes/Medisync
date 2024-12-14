@@ -141,7 +141,7 @@ struct MessagesView: View {
                 messagesViewModel.fetchMessages()
             }
         }
-        messagesViewModel.fetchUsers() // Fetch the available users
-        messagesViewModel.fetchMessages()
+        messagesViewModel.fetchUsers()
     }
+
 }

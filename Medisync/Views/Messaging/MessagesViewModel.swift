@@ -19,7 +19,8 @@ class MessagesViewModel: ObservableObject {
     @Published var messages: [Message] = []
     @Published var availableUsers: [User] = [] // Store available users to select from
     @Published var currentUserName: String = ""
-    @Published var selectedReceiver: String? = nil 
+    @Published var selectedReceiver: String? = nil
+    private var messageListener: ListenerRegistration?
     
     private let db = Firestore.firestore()
 
@@ -57,6 +58,9 @@ class MessagesViewModel: ObservableObject {
     
     // Fetch messages for the logged-in user    
     func fetchMessages() {
+        // Remove the previous listener to avoid multiple listeners
+        messageListener?.remove()
+        
         guard let currentUserUID = try? AuthenticationManager.shared.getAuthenticatedUser().uid else {
             print("No logged-in user")
             return
@@ -64,28 +68,51 @@ class MessagesViewModel: ObservableObject {
         
         let messagesRef = db.collection("messages").whereField("receiverUID", isEqualTo: currentUserUID)
         
-        messagesRef.getDocuments { snapshot, error in
+        messageListener = messagesRef.addSnapshotListener { snapshot, error in
             if let error = error {
-                print("Error fetching messages: \(error)")
+                print("Error fetching messages: \(error.localizedDescription)")
                 return
             }
             
-            self.messages = snapshot?.documents.compactMap { document in
-                let data = document.data()
-                return Message(
-                    id: document.documentID,
+            var newMessages: [String: Message] = [:]
+            
+            snapshot?.documentChanges.forEach { change in
+                let data = change.document.data()
+                
+                let message = Message(
+                    id: change.document.documentID,
                     sender: data["sender"] as? String ?? "Unknown Sender",
                     receiver: data["receiver"] as? String ?? "Unknown Receiver",
                     content: data["content"] as? String ?? "No Content",
                     subject: data["subject"] as? String ?? "No Subject",
                     timestamp: (data["timestamp"] as? Timestamp)?.dateValue() ?? Date()
                 )
-            } ?? []
+                
+                switch change.type {
+                case .added:
+                    newMessages[message.id] = message
+                    
+                case .modified:
+                    newMessages[message.id] = message
+                    
+                case .removed:
+                    if let index = self.messages.firstIndex(where: { $0.id == message.id }) {
+                        self.messages.remove(at: index)
+                    }
+                }
+            }
             
-            print("Messages fetched: \(self.messages.count)")
+            DispatchQueue.main.async {
+                self.messages.append(contentsOf: newMessages.values.filter { !self.messages.contains($0) })
+                
+                self.messages.sort { $0.timestamp > $1.timestamp }
+                
+                print("Real-time Messages fetched: \(self.messages.count)")
+            }
         }
-        
     }
+
+
 
     
     // Send message

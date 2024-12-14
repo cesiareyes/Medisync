@@ -32,9 +32,13 @@ struct LabTechDashboard: View {
                         LabWelcomeView()
                         LabTechView(viewModel: viewModel)
                         
-                    }
-                    else if selectedTab == 1 {
-                        LabWelcomeView()
+                    } else if selectedTab == 1 {
+                        Text("Inbox")
+                            .font(.system(size: 35, weight: .semibold, design: .default))
+                            .foregroundColor(.black)
+                            .padding(.top, 15)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding()
                         MessagesView(
                             messagesViewModel: messagesViewModel,
                             availableUsers: messagesViewModel.availableUsers
@@ -43,6 +47,8 @@ struct LabTechDashboard: View {
                     else if selectedTab == 2 {
                         Profile()
                     }
+                    
+                    Spacer()
                     
                     HStack {
                         Spacer()

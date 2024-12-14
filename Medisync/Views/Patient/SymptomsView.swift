@@ -46,8 +46,10 @@ struct SymptomsView: View {
 
                 TextField("Enter duration (e.g., 2 days, 1 week)", text: $symptomDuration)
                     .padding()
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(10)
+                    .background(Color.white)
+                    .cornerRadius(20)
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal)
             }
             
             VStack(alignment: .leading) {
@@ -58,8 +60,10 @@ struct SymptomsView: View {
                 
                 TextField("Add a brief description", text: $symptomDescription)
                     .padding()
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(10)
+                    .background(Color.white)
+                    .cornerRadius(20)
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal)
             }
             
             AddSymptomButton {

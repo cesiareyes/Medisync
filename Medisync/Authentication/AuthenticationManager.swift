@@ -20,10 +20,17 @@ struct AuthDataResultModel {
 }
 
 final class AuthenticationManager {
-    
+    let db = Firestore.firestore()
     static let shared = AuthenticationManager()
-    private init() {
-        
+    
+    init() {
+        enableOfflinePersistence()
+    }
+       
+    private func enableOfflinePersistence() {
+        let settings = FirestoreSettings()
+        settings.isPersistenceEnabled = true
+        db.settings = settings
     }
     
     func getAuthenticatedUser() throws -> AuthDataResultModel {
@@ -45,7 +52,6 @@ final class AuthenticationManager {
             return
         }
         
-        let db = Firestore.firestore()
         let userRef = db.collection("users").document(user.uid)
         
         userRef.getDocument { snapshot, error in

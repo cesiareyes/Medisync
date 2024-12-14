@@ -26,6 +26,7 @@ struct PatientDashboard: View {
                 VStack(spacing: 0) {
                     // Display content based on selected tab
                     if selectedTab == 0 {
+                        PatientWelcomeView()
                         //Display Welcome Message with User's Name
                         Text("Welcome, \(userName)")
                             .font(.system(size: 28, weight: .bold, design: .default))
@@ -88,6 +89,7 @@ struct PatientDashboard: View {
                         print("Could not retrieve user name.")
                     }
                 }
+                viewModel.fetchAppointments()
             }
         }
     }
